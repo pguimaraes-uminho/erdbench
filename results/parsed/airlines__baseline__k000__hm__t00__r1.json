@@ -1,0 +1,390 @@
+{
+  "run_id": "airlines__baseline__k000__hm__t00__r1",
+  "provider": "baseline",
+  "model_requested": "deterministic-profiling-v1",
+  "dataset": "airlines",
+  "cond_id": "k000__hm",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "meaningful",
+  "temperature": 0.0,
+  "replicate": 1,
+  "candidate": {
+    "entities": [
+      {
+        "name": "Airline",
+        "pk": [
+          "airline_code"
+        ],
+        "attrs": [
+          {
+            "name": "airline_code",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "airline_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "AirportArrival",
+        "pk": [
+          "airport_arrival"
+        ],
+        "attrs": [
+          {
+            "name": "airport_arrival",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "arrival_location",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "arrival_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "AirportDeparture",
+        "pk": [
+          "airport_departure"
+        ],
+        "attrs": [
+          {
+            "name": "airport_departure",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "departure_location",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "departure_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "ArrivalLocation",
+        "pk": [
+          "arrival_location"
+        ],
+        "attrs": [
+          {
+            "name": "arrival_location",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "arrival_city",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Belt",
+        "pk": [
+          "belt_number"
+        ],
+        "attrs": [
+          {
+            "name": "belt_number",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "airport_arrival",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      },
+      {
+        "name": "CrewLicense",
+        "pk": [
+          "crew_license"
+        ],
+        "attrs": [
+          {
+            "name": "crew_license",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "crew_role",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "DepartureLocation",
+        "pk": [
+          "departure_location"
+        ],
+        "attrs": [
+          {
+            "name": "departure_location",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "departure_city",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "License",
+        "pk": [
+          "license_number"
+        ],
+        "attrs": [
+          {
+            "name": "license_number",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "airplane_model",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Passport",
+        "pk": [
+          "passport"
+        ],
+        "attrs": [
+          {
+            "name": "passport",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "customer_name",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "customer_surname",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Status",
+        "pk": [
+          "status_code"
+        ],
+        "attrs": [
+          {
+            "name": "status_code",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "status",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Record",
+        "pk": [
+          "status_date",
+          "passport"
+        ],
+        "attrs": [
+          {
+            "name": "flight_number",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "flight_date",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "seat_number",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "status_date",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "status_hour",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "airline_code",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "airport_departure",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "belt_number",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "crew_license",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "license_number",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "passport",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "status_code",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "Record",
+        "to": "Airline",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "airline_code",
+        "fk_cols": [
+          "airlinecode"
+        ]
+      },
+      {
+        "frm": "Record",
+        "to": "AirportDeparture",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "airport_departure",
+        "fk_cols": [
+          "airportdeparture"
+        ]
+      },
+      {
+        "frm": "Record",
+        "to": "Belt",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "belt_number",
+        "fk_cols": [
+          "beltnumber"
+        ]
+      },
+      {
+        "frm": "Record",
+        "to": "CrewLicense",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "crew_license",
+        "fk_cols": [
+          "crewlicense"
+        ]
+      },
+      {
+        "frm": "Record",
+        "to": "License",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "license_number",
+        "fk_cols": [
+          "licensenumber"
+        ]
+      },
+      {
+        "frm": "Record",
+        "to": "Passport",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "passport",
+        "fk_cols": [
+          "passport"
+        ]
+      },
+      {
+        "frm": "Record",
+        "to": "Status",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "status_code",
+        "fk_cols": [
+          "statuscode"
+        ]
+      },
+      {
+        "frm": "AirportArrival",
+        "to": "ArrivalLocation",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "arrival_location",
+        "fk_cols": [
+          "arrivallocation"
+        ]
+      },
+      {
+        "frm": "AirportDeparture",
+        "to": "DepartureLocation",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "departure_location",
+        "fk_cols": [
+          "departurelocation"
+        ]
+      },
+      {
+        "frm": "Belt",
+        "to": "AirportArrival",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "airport_arrival",
+        "fk_cols": [
+          "airportarrival"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 67,
+    "lines_parsed": 67,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

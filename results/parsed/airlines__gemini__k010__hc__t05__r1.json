@@ -1,0 +1,411 @@
+{
+  "run_id": "airlines__gemini__k010__hc__t05__r1",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "dataset": "airlines",
+  "cond_id": "k010__hc",
+  "domain": false,
+  "dictionary": true,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 1,
+  "candidate": {
+    "entities": [
+      {
+        "name": "Passenger",
+        "pk": [
+          "C_CBC471"
+        ],
+        "attrs": [
+          {
+            "name": "C_CBC471",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_0F6080",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "C_5D89B3",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Airline",
+        "pk": [
+          "C_2D8B16"
+        ],
+        "attrs": [
+          {
+            "name": "C_2D8B16",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_A89B15",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Location",
+        "pk": [
+          "C_713E83"
+        ],
+        "attrs": [
+          {
+            "name": "C_713E83",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_10EC5F",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Airport",
+        "pk": [
+          "C_B7FEBA"
+        ],
+        "attrs": [
+          {
+            "name": "C_B7FEBA",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_C3863A",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "C_713E83",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      },
+      {
+        "name": "Aircraft",
+        "pk": [
+          "C_50188A"
+        ],
+        "attrs": [
+          {
+            "name": "C_50188A",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_8C12D6",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "FlightStatus",
+        "pk": [
+          "C_BBACE0"
+        ],
+        "attrs": [
+          {
+            "name": "C_BBACE0",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_073C16",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "CrewMember",
+        "pk": [
+          "C_E61BA3"
+        ],
+        "attrs": [
+          {
+            "name": "C_E61BA3",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_6F8658",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Flight",
+        "pk": [
+          "C_5C3219",
+          "C_EB6393"
+        ],
+        "attrs": [
+          {
+            "name": "C_5C3219",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_EB6393",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_2D8B16",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "C_B7FEBA",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "C_EC6E73",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "C_7D36D4",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "C_50188A",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      },
+      {
+        "name": "FlightHistory",
+        "pk": [
+          "C_5C3219",
+          "C_EB6393",
+          "C_BBACE0",
+          "C_8EA257",
+          "C_01DE47"
+        ],
+        "attrs": [
+          {
+            "name": "C_5C3219",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "C_EB6393",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "C_BBACE0",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "C_8EA257",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_01DE47",
+            "is_pk": true,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "PassengerFlight",
+        "pk": [
+          "C_CBC471",
+          "C_5C3219",
+          "C_EB6393"
+        ],
+        "attrs": [
+          {
+            "name": "C_CBC471",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "C_5C3219",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "C_EB6393",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "C_7C1EC3",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "CrewFlight",
+        "pk": [
+          "C_E61BA3",
+          "C_5C3219",
+          "C_EB6393"
+        ],
+        "attrs": [
+          {
+            "name": "C_E61BA3",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "C_5C3219",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "C_EB6393",
+            "is_pk": true,
+            "is_fk": true
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "Airport",
+        "to": "Location",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_713E83",
+        "fk_cols": [
+          "c713e83"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airline",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_2D8B16",
+        "fk_cols": [
+          "c2d8b16"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airport",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_B7FEBA",
+        "fk_cols": [
+          "cb7feba"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airport",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_EC6E73",
+        "fk_cols": [
+          "cec6e73"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Aircraft",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_50188A",
+        "fk_cols": [
+          "c50188a"
+        ]
+      },
+      {
+        "frm": "FlightHistory",
+        "to": "Flight",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_5C3219,C_EB6393",
+        "fk_cols": [
+          "c5c3219",
+          "ceb6393"
+        ]
+      },
+      {
+        "frm": "FlightHistory",
+        "to": "FlightStatus",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_BBACE0",
+        "fk_cols": [
+          "cbbace0"
+        ]
+      },
+      {
+        "frm": "PassengerFlight",
+        "to": "Passenger",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_CBC471",
+        "fk_cols": [
+          "ccbc471"
+        ]
+      },
+      {
+        "frm": "PassengerFlight",
+        "to": "Flight",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_5C3219,C_EB6393",
+        "fk_cols": [
+          "c5c3219",
+          "ceb6393"
+        ]
+      },
+      {
+        "frm": "CrewFlight",
+        "to": "CrewMember",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_E61BA3",
+        "fk_cols": [
+          "ce61ba3"
+        ]
+      },
+      {
+        "frm": "CrewFlight",
+        "to": "Flight",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_5C3219,C_EB6393",
+        "fk_cols": [
+          "c5c3219",
+          "ceb6393"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 68,
+    "lines_parsed": 68,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

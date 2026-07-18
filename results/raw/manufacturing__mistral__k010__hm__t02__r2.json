@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__mistral__k010__hm__t02__r2",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "manufacturing",
+  "cond_id": "k010__hm",
+  "domain": false,
+  "dictionary": true,
+  "rules": false,
+  "headers": "meaningful",
+  "temperature": 0.2,
+  "replicate": 2,
+  "seed": 43,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "db4f832cc8356749c22d0eb58d158bf1ec4ed35dc3ccfa805f66ba50b34e0000",
+  "prompt_file": "prompts/rendered/manufacturing__k010__hm.txt",
+  "response_text": "ENTITY Client\nPK client_id\nATTR client_id : integer : PK\nATTR client_name : varchar\n\nENTITY ProductionOrder\nPK n_order\nATTR n_order : integer : PK\nATTR date : date\nATTR client_id : integer : FK\n\nENTITY Material\nPK n_material\nATTR n_material : integer : PK\nATTR description_material : varchar\n\nENTITY OperationType\nPK n_operation\nATTR n_operation : integer : PK\nATTR description_operation : varchar\n\nENTITY WorkCenter\nPK workcenter_id\nATTR workcenter_id : integer : PK\n\nENTITY OrderOperation\nPK order_operation_id\nATTR order_operation_id : integer : PK\nATTR n_order : integer : FK\nATTR n_material : integer : FK\nATTR n_operation : integer : FK\nATTR workcenter_id : integer : FK\nATTR timestamp : timestamp\nATTR quantity : float\n\nREL ProductionOrder -> Client : 1..N -> 1 : FK=client_id\nREL OrderOperation -> ProductionOrder : 1..N -> 1 : FK=n_order\nREL OrderOperation -> Material : 1..N -> 1 : FK=n_material\nREL OrderOperation -> OperationType : 1..N -> 1 : FK=n_operation\nREL OrderOperation -> WorkCenter : 1..N -> 1 : FK=workcenter_id",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 11703,
+    "output_tokens": 302
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.2, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 43}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 1789,
+  "transport_retries": 0
+}

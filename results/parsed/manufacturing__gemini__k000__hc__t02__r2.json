@@ -1,0 +1,189 @@
+{
+  "run_id": "manufacturing__gemini__k000__hc__t02__r2",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hc",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.2,
+  "replicate": 2,
+  "candidate": {
+    "entities": [
+      {
+        "name": "Client",
+        "pk": [
+          "client_id"
+        ],
+        "attrs": [
+          {
+            "name": "client_id",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "client_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "ClientOrder",
+        "pk": [
+          "order_id"
+        ],
+        "attrs": [
+          {
+            "name": "order_id",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "client_id",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "order_date",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Material",
+        "pk": [
+          "material_id"
+        ],
+        "attrs": [
+          {
+            "name": "material_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "material_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Operation",
+        "pk": [
+          "operation_id"
+        ],
+        "attrs": [
+          {
+            "name": "operation_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "operation_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "OrderDetail",
+        "pk": [
+          "order_id",
+          "material_id",
+          "operation_id",
+          "sequence_number"
+        ],
+        "attrs": [
+          {
+            "name": "order_id",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "material_id",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "operation_id",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "sequence_number",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "quantity",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "scheduled_datetime",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "price",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "Client",
+        "to": "ClientOrder",
+        "cf": "1",
+        "ct": "0..N",
+        "fk": "client_id",
+        "fk_cols": [
+          "clientid"
+        ]
+      },
+      {
+        "frm": "ClientOrder",
+        "to": "OrderDetail",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "order_id",
+        "fk_cols": [
+          "orderid"
+        ]
+      },
+      {
+        "frm": "OrderDetail",
+        "to": "Material",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "material_id",
+        "fk_cols": [
+          "materialid"
+        ]
+      },
+      {
+        "frm": "OrderDetail",
+        "to": "Operation",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "operation_id",
+        "fk_cols": [
+          "operationid"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 30,
+    "lines_parsed": 30,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

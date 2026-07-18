@@ -1,0 +1,330 @@
+{
+  "run_id": "airlines__mistral__k000__hc__t05__r2",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k000__hc",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 2,
+  "candidate": {
+    "entities": [
+      {
+        "name": "Flight",
+        "pk": [
+          "flight_id"
+        ],
+        "attrs": [
+          {
+            "name": "flight_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "flight_number",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "flight_date",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "departure_status",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "departure_time",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "arrival_status",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "arrival_time",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "scheduled_departure",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "scheduled_departure_time",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Airline",
+        "pk": [
+          "airline_id"
+        ],
+        "attrs": [
+          {
+            "name": "airline_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "airline_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Airport",
+        "pk": [
+          "airport_id"
+        ],
+        "attrs": [
+          {
+            "name": "airport_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "airport_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "City",
+        "pk": [
+          "city_id"
+        ],
+        "attrs": [
+          {
+            "name": "city_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "city_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Aircraft",
+        "pk": [
+          "aircraft_id"
+        ],
+        "attrs": [
+          {
+            "name": "aircraft_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "aircraft_model",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Crew",
+        "pk": [
+          "crew_id"
+        ],
+        "attrs": [
+          {
+            "name": "crew_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "crew_name",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "crew_surname",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "CrewRole",
+        "pk": [
+          "crew_role_id"
+        ],
+        "attrs": [
+          {
+            "name": "crew_role_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "role_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "FlightStatus",
+        "pk": [
+          "status_id"
+        ],
+        "attrs": [
+          {
+            "name": "status_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "status_description",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "Flight",
+        "to": "Airline",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "airline_id",
+        "fk_cols": [
+          "airlineid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airport",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "departure_airport_id",
+        "fk_cols": [
+          "departureairportid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airport",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "arrival_airport_id",
+        "fk_cols": [
+          "arrivalairportid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "City",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "departure_city_id",
+        "fk_cols": [
+          "departurecityid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "City",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "arrival_city_id",
+        "fk_cols": [
+          "arrivalcityid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Aircraft",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "aircraft_id",
+        "fk_cols": [
+          "aircraftid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Crew",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "pilot_id",
+        "fk_cols": [
+          "pilotid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Crew",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "co_pilot_id",
+        "fk_cols": [
+          "copilotid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Crew",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "purser_id",
+        "fk_cols": [
+          "purserid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Crew",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "cabin_crew_id",
+        "fk_cols": [
+          "cabincrewid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "FlightStatus",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "departure_status_id",
+        "fk_cols": [
+          "departurestatusid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "FlightStatus",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "arrival_status_id",
+        "fk_cols": [
+          "arrivalstatusid"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 52,
+    "lines_parsed": 52,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

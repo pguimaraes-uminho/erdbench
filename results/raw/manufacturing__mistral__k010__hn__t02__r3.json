@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__mistral__k010__hn__t02__r3",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "manufacturing",
+  "cond_id": "k010__hn",
+  "domain": false,
+  "dictionary": true,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.2,
+  "replicate": 3,
+  "seed": 44,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "3aae726d2c03730fc606aedf632aec8aca90d58c94df0397ee7a25b648d695ad",
+  "prompt_file": "prompts/rendered/manufacturing__k010__hn.txt",
+  "response_text": "ENTITY Client\nPK client_id\nATTR client_id : integer : PK\nATTR client_name : varchar\n\nENTITY ProductionOrder\nPK order_id\nATTR order_id : integer : PK\nATTR registration_date : date\n\nENTITY Material\nPK material_id\nATTR material_id : integer : PK\nATTR material_description : varchar\n\nENTITY OperationType\nPK operation_type_id\nATTR operation_type_id : integer : PK\nATTR operation_type_description : varchar\n\nENTITY WorkCenter\nPK work_center_id\nATTR work_center_id : integer : PK\n\nENTITY OperationExecution\nPK execution_id\nATTR execution_id : integer : PK\nATTR start_datetime : datetime\nATTR quantity_processed : float\n\nREL ProductionOrder -> Client : 1..N -> 1 : FK=client_id\nREL OperationExecution -> ProductionOrder : 1..N -> 1 : FK=order_id\nREL OperationExecution -> Material : 1..N -> 1 : FK=material_id\nREL OperationExecution -> OperationType : 1..N -> 1 : FK=operation_type_id\nREL OperationExecution -> WorkCenter : 1..N -> 1 : FK=work_center_id",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 11693,
+    "output_tokens": 253
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.2, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 44}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 1928,
+  "transport_retries": 0
+}

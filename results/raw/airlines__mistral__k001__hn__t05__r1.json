@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__mistral__k001__hn__t05__r1",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k001__hn",
+  "domain": false,
+  "dictionary": false,
+  "rules": true,
+  "headers": "none",
+  "temperature": 0.5,
+  "replicate": 1,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "b150ac391d1be1f2bdee593ca2726d7c0a6f748f61a0cca3df81d72d4f1e7d36",
+  "prompt_file": "prompts/rendered/airlines__k001__hn.txt",
+  "response_text": "ENTITY Airport\nPK airport_id\nATTR airport_id : varchar : PK\nATTR airport_name : varchar\nATTR airport_code : varchar\n\nENTITY City\nPK city_id\nATTR city_id : varchar : PK\nATTR city_name : varchar\n\nENTITY Airline\nPK airline_id\nATTR airline_id : varchar : PK\nATTR airline_name : varchar\n\nENTITY Airplane\nPK airplane_id\nATTR airplane_id : varchar : PK\nATTR airplane_model : varchar\nATTR airplane_registration : varchar\n\nENTITY Flight\nPK flight_id\nATTR flight_id : varchar : PK\nATTR flight_date : date\nATTR flight_status : varchar\nATTR flight_status_datetime : datetime\n\nENTITY FlightStatus\nPK status_id\nATTR status_id : varchar : PK\nATTR status_name : varchar\n\nENTITY CrewMember\nPK crew_id\nATTR crew_id : varchar : PK\nATTR crew_first_name : varchar\nATTR crew_last_name : varchar\nATTR crew_role : varchar\n\nENTITY CrewAssignment\nPK assignment_id\nATTR assignment_id : integer : PK\nATTR crew_id : varchar : FK\nATTR flight_id : varchar : FK\n\nREL CrewAssignment -> CrewMember : 1 -> 0..N : FK=crew_id\nREL CrewAssignment -> Flight : 1 -> 1..N : FK=flight_id",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 66307,
+    "output_tokens": 287
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.5, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 42}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 4317,
+  "transport_retries": 0
+}

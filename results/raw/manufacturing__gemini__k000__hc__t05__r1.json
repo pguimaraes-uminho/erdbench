@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__gemini__k000__hc__t05__r1",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hc",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 1,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "3873d322cb2f10092596291ec949d82f06c22e8ef72c90ca1a66f6309a05b47c",
+  "prompt_file": "prompts/rendered/manufacturing__k000__hc.txt",
+  "response_text": "ENTITY Client\nPK client_id\nATTR client_id : integer : PK\nATTR client_name : varchar\nREL WorkOrder -> Client : 1..N -> 1 : FK=client_id\nENTITY WorkOrder\nPK work_order_id\nATTR work_order_id : integer : PK\nATTR client_id : integer : FK\nATTR work_order_date : date\nREL WorkOrderMaterial -> WorkOrder : 1..N -> 1 : FK=work_order_id\nENTITY Material\nPK material_id\nATTR material_id : integer : PK\nATTR material_name : varchar\nREL WorkOrderMaterial -> Material : 1..N -> 1 : FK=material_id\nENTITY Operation\nPK operation_id\nATTR operation_id : integer : PK\nATTR operation_name : varchar\nREL WorkOrderMaterial -> Operation : 1..N -> 1 : FK=operation_id\nENTITY WorkOrderMaterial\nPK work_order_material_id\nATTR work_order_material_id : integer : PK\nATTR work_order_id : integer : FK\nATTR material_id : integer : FK\nATTR operation_id : integer : FK\nATTR step_number : integer\nATTR scheduled_datetime : datetime\nATTR quantity : decimal",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 11577,
+    "output_tokens": 272
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.5, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 42, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 1816,
+  "transport_retries": 0
+}

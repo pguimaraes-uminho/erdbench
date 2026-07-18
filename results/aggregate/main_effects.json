@@ -1,0 +1,366 @@
+{
+  "mistral": {
+    "airlines": {
+      "entities": {
+        "domain": {
+          "off": 0.8015,
+          "on": 0.7457,
+          "delta": -0.0558
+        },
+        "dictionary": {
+          "off": 0.8166,
+          "on": 0.7306,
+          "delta": -0.0859
+        },
+        "rules": {
+          "off": 0.7341,
+          "on": 0.8131,
+          "delta": 0.079
+        },
+        "headers": {
+          "meaningful": 0.7736,
+          "cryptic": 0.7048,
+          "none": 0.7401
+        }
+      },
+      "relationships": {
+        "domain": {
+          "off": 0.1531,
+          "on": 0.0692,
+          "delta": -0.0839
+        },
+        "dictionary": {
+          "off": 0.1555,
+          "on": 0.0668,
+          "delta": -0.0886
+        },
+        "rules": {
+          "off": 0.1022,
+          "on": 0.1201,
+          "delta": 0.0179
+        },
+        "headers": {
+          "meaningful": 0.1111,
+          "cryptic": 0.0428,
+          "none": 0.0536
+        }
+      },
+      "keys": {
+        "domain": {
+          "off": 0.3586,
+          "on": 0.3506,
+          "delta": -0.008
+        },
+        "dictionary": {
+          "off": 0.3436,
+          "on": 0.3655,
+          "delta": 0.0219
+        },
+        "rules": {
+          "off": 0.3536,
+          "on": 0.3556,
+          "delta": 0.002
+        },
+        "headers": {
+          "meaningful": 0.3546,
+          "cryptic": 0.0334,
+          "none": 0.0439
+        }
+      },
+      "attributes": {
+        "domain": {
+          "off": 0.5736,
+          "on": 0.5733,
+          "delta": -0.0003
+        },
+        "dictionary": {
+          "off": 0.552,
+          "on": 0.5949,
+          "delta": 0.0428
+        },
+        "rules": {
+          "off": 0.563,
+          "on": 0.5839,
+          "delta": 0.021
+        },
+        "headers": {
+          "meaningful": 0.5734,
+          "cryptic": 0.1257,
+          "none": 0.2223
+        }
+      }
+    },
+    "manufacturing": {
+      "entities": {
+        "domain": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "dictionary": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "rules": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "headers": {
+          "meaningful": 1.0,
+          "cryptic": 0.9841,
+          "none": 0.9886
+        }
+      },
+      "relationships": {
+        "domain": {
+          "off": 0.5833,
+          "on": 0.6,
+          "delta": 0.0167
+        },
+        "dictionary": {
+          "off": 0.25,
+          "on": 0.9333,
+          "delta": 0.6833
+        },
+        "rules": {
+          "off": 0.5667,
+          "on": 0.6167,
+          "delta": 0.05
+        },
+        "headers": {
+          "meaningful": 0.5917,
+          "cryptic": 0.7725,
+          "none": 0.7454
+        }
+      },
+      "keys": {
+        "domain": {
+          "off": 0.873,
+          "on": 0.856,
+          "delta": -0.017
+        },
+        "dictionary": {
+          "off": 0.733,
+          "on": 0.996,
+          "delta": 0.263
+        },
+        "rules": {
+          "off": 1.0,
+          "on": 0.7291,
+          "delta": -0.2709
+        },
+        "headers": {
+          "meaningful": 0.8645,
+          "cryptic": 0.2856,
+          "none": 0.2749
+        }
+      },
+      "attributes": {
+        "domain": {
+          "off": 0.9444,
+          "on": 0.9375,
+          "delta": -0.0069
+        },
+        "dictionary": {
+          "off": 0.8819,
+          "on": 1.0,
+          "delta": 0.1181
+        },
+        "rules": {
+          "off": 1.0,
+          "on": 0.8819,
+          "delta": -0.1181
+        },
+        "headers": {
+          "meaningful": 0.941,
+          "cryptic": 0.3032,
+          "none": 0.2865
+        }
+      }
+    }
+  },
+  "gemini": {
+    "airlines": {
+      "entities": {
+        "domain": {
+          "off": 0.8767,
+          "on": 0.8747,
+          "delta": -0.002
+        },
+        "dictionary": {
+          "off": 0.8791,
+          "on": 0.8724,
+          "delta": -0.0067
+        },
+        "rules": {
+          "off": 0.8279,
+          "on": 0.9235,
+          "delta": 0.0956
+        },
+        "headers": {
+          "meaningful": 0.8757,
+          "cryptic": 0.8383,
+          "none": 0.8731
+        }
+      },
+      "relationships": {
+        "domain": {
+          "off": 0.7466,
+          "on": 0.7772,
+          "delta": 0.0306
+        },
+        "dictionary": {
+          "off": 0.7718,
+          "on": 0.752,
+          "delta": -0.0198
+        },
+        "rules": {
+          "off": 0.7063,
+          "on": 0.8174,
+          "delta": 0.1111
+        },
+        "headers": {
+          "meaningful": 0.7619,
+          "cryptic": 0.66,
+          "none": 0.6834
+        }
+      },
+      "keys": {
+        "domain": {
+          "off": 0.8069,
+          "on": 0.7566,
+          "delta": -0.0504
+        },
+        "dictionary": {
+          "off": 0.7648,
+          "on": 0.7987,
+          "delta": 0.0338
+        },
+        "rules": {
+          "off": 0.7522,
+          "on": 0.8113,
+          "delta": 0.0591
+        },
+        "headers": {
+          "meaningful": 0.7818,
+          "cryptic": 0.0322,
+          "none": 0.0351
+        }
+      },
+      "attributes": {
+        "domain": {
+          "off": 0.7986,
+          "on": 0.7863,
+          "delta": -0.0123
+        },
+        "dictionary": {
+          "off": 0.7996,
+          "on": 0.7853,
+          "delta": -0.0143
+        },
+        "rules": {
+          "off": 0.7702,
+          "on": 0.8148,
+          "delta": 0.0445
+        },
+        "headers": {
+          "meaningful": 0.7925,
+          "cryptic": 0.1145,
+          "none": 0.1163
+        }
+      }
+    },
+    "manufacturing": {
+      "entities": {
+        "domain": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "dictionary": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "rules": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "headers": {
+          "meaningful": 1.0,
+          "cryptic": 0.9432,
+          "none": 0.9015
+        }
+      },
+      "relationships": {
+        "domain": {
+          "off": 0.7833,
+          "on": 0.7167,
+          "delta": -0.0667
+        },
+        "dictionary": {
+          "off": 0.7333,
+          "on": 0.7667,
+          "delta": 0.0333
+        },
+        "rules": {
+          "off": 0.75,
+          "on": 0.75,
+          "delta": 0.0
+        },
+        "headers": {
+          "meaningful": 0.75,
+          "cryptic": 0.5833,
+          "none": 0.425
+        }
+      },
+      "keys": {
+        "domain": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "dictionary": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "rules": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "headers": {
+          "meaningful": 1.0,
+          "cryptic": 0.1558,
+          "none": 0.092
+        }
+      },
+      "attributes": {
+        "domain": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "dictionary": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "rules": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "headers": {
+          "meaningful": 1.0,
+          "cryptic": 0.1375,
+          "none": 0.09
+        }
+      }
+    }
+  }
+}

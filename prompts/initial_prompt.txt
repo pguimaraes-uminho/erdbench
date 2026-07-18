@@ -1,0 +1,24 @@
+You are a database-design expert. From the information about ONE CSV file below, infer a normalized (3NF) ERD: entities, attributes, primary keys, foreign keys, and relationships with cardinalities. A denormalized CSV may represent several entities — normalize it into the appropriate entities and wire the foreign keys. Use meaningful, singular entity names. Base every declaration strictly on the provided input: declare only entities, attributes, and relationships that are evidenced by the data (and by the expert context, when provided). Do NOT invent or assume attributes, entities, or relationships that are not present in the input. Output ONLY the plain-text declarations below, one per line — no prose, no markdown, no JSON, no comments.
+
+OUTPUT FORMAT
+ENTITY <EntityName>
+PK <column>[, <column> ...]
+ATTR <column> : <data_type>[ : PK][ : FK]
+REL <FromEntity> -> <ToEntity> : <from_cardinality> -> <to_cardinality> : FK=<fk_column>
+
+Declare each entity (ENTITY, then its PK line, then one ATTR line per column), then every relationship. Cardinalities are one of: 1, 0..1, 0..N, 1..N. In every REL line, <FromEntity> is the entity that holds the foreign key column and <ToEntity> is the referenced entity; <from_cardinality> is how many FromEntity instances relate to one ToEntity instance, and <to_cardinality> is how many ToEntity instances relate to one FromEntity instance (in the example below: an author has 0..N books, and a book has exactly 1 author).
+
+EXAMPLE (syntax only — an unrelated domain)
+ENTITY Author
+PK author_id
+ATTR author_id : integer : PK
+ATTR author_name : varchar
+ENTITY Book
+PK isbn
+ATTR isbn : varchar : PK
+ATTR title : varchar
+ATTR author_id : integer : FK
+REL Book -> Author : 0..N -> 1 : FK=author_id
+
+INPUT
+{{DATA_BLOCK}}

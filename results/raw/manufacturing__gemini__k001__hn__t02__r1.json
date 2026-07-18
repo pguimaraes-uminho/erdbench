@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__gemini__k001__hn__t02__r1",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "manufacturing",
+  "cond_id": "k001__hn",
+  "domain": false,
+  "dictionary": false,
+  "rules": true,
+  "headers": "none",
+  "temperature": 0.2,
+  "replicate": 1,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "220311f22c9666a0c54e09dcec0cba483d7984e6b2c7fc056fdeaefd2c275467",
+  "prompt_file": "prompts/rendered/manufacturing__k001__hn.txt",
+  "response_text": "ENTITY Client\nPK client_id\nATTR client_id : integer : PK\nATTR client_name : varchar\nENTITY Order\nPK order_id\nATTR order_id : integer : PK\nATTR client_id : integer : FK\nATTR registration_date : date\nREL Order -> Client : 0..N -> 1 : FK=client_id\nENTITY Material\nPK material_id\nATTR material_id : integer : PK\nATTR material_name : varchar\nENTITY OperationType\nPK operation_type_id\nATTR operation_type_id : integer : PK\nATTR operation_type_name : varchar\nENTITY WorkCenter\nPK work_center_id\nATTR work_center_id : integer : PK\nATTR work_center_name : integer\nENTITY Operation\nPK operation_id\nATTR operation_id : integer : PK\nATTR order_id : integer : FK\nATTR material_id : integer : FK\nATTR operation_type_id : integer : FK\nATTR work_center_id : integer : FK\nATTR start_datetime : datetime\nATTR quantity : decimal\nREL Operation -> Order : 0..N -> 1 : FK=order_id\nREL Operation -> Material : 0..N -> 0..N : FK=material_id\nREL Operation -> OperationType : 0..N -> 0..N : FK=operation_type_id\nREL Operation -> WorkCenter : 0..N -> 0..N : FK=work_center_id",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 11663,
+    "output_tokens": 318
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.2, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 42, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 1856,
+  "transport_retries": 0
+}

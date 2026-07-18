@@ -1,0 +1,30 @@
+{
+  "_comment": "Data dictionary: expert-provided meaning of each column. Describes attribute SEMANTICS only (meaning/nature) -- never ERD roles (no 'primary key', no 'foreign key to X'). Keyed by the canonical column name in CSV order; build_prompts.py rewrites the key to match the header transform (meaningful/cryptic/none) so the dictionary is usable in every header condition and can recover semantics that coded/absent names lose.",
+  "dictionary": {
+    "passport": "a code identifying an individual passenger",
+    "customer_name": "the given name of the passenger",
+    "customer_surname": "the family name of the passenger",
+    "flight_number": "a code identifying a scheduled flight",
+    "flight_date": "the calendar date on which the flight operates",
+    "seat_number": "the seat a passenger occupies on a flight",
+    "airline_code": "a short code for the airline operating the flight",
+    "airline_name": "the name of that airline",
+    "airport_departure": "a code for the airport the flight departs from",
+    "departure_name": "the name of the departure airport",
+    "departure_location": "a code for the geographic location of the departure airport",
+    "departure_city": "the city of the departure airport's location",
+    "airport_arrival": "a code for the airport the flight arrives at",
+    "arrival_name": "the name of the arrival airport",
+    "arrival_location": "a code for the geographic location of the arrival airport",
+    "arrival_city": "the city of the arrival airport's location",
+    "belt_number": "a code for the baggage belt used at the arrival airport",
+    "license_number": "the registration code of the physical airplane used for the flight",
+    "airplane_model": "the model of that airplane",
+    "status_code": "a short code for an operational status of the flight",
+    "status": "the human-readable label of that status",
+    "status_date": "the date on which the flight reached that status",
+    "status_hour": "the time at which the flight reached that status",
+    "crew_license": "a code identifying a crew member",
+    "crew_role": "the role the crew member performs on the flight"
+  }
+}

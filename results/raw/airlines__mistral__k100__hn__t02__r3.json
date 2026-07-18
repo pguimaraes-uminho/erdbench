@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__mistral__k100__hn__t02__r3",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k100__hn",
+  "domain": true,
+  "dictionary": false,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.2,
+  "replicate": 3,
+  "seed": 44,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "4fc051916f763ced78c93e230fb9487b903cb6d10aed5736f441e3b113e025ad",
+  "prompt_file": "prompts/rendered/airlines__k100__hn.txt",
+  "response_text": "ENTITY Flight\nPK flight_id\nATTR flight_id : varchar : PK\nATTR flight_date : date\nATTR flight_time : time\nATTR flight_status : varchar\n\nENTITY Airport\nPK airport_id\nATTR airport_id : varchar : PK\nATTR airport_name : varchar\nATTR airport_code : varchar\nATTR city : varchar\n\nENTITY Airline\nPK airline_id\nATTR airline_id : varchar : PK\nATTR airline_name : varchar\n\nENTITY Aircraft\nPK aircraft_id\nATTR aircraft_id : varchar : PK\nATTR aircraft_model : varchar\nATTR aircraft_registration : varchar\n\nENTITY Person\nPK person_id\nATTR person_id : varchar : PK\nATTR person_name : varchar\nATTR person_surname : varchar\n\nENTITY CrewRole\nPK role_id\nATTR role_id : varchar : PK\nATTR role_name : varchar\n\nENTITY FlightLeg\nPK flight_leg_id\nATTR flight_leg_id : varchar : PK\nATTR departure_airport_id : varchar : FK\nATTR arrival_airport_id : varchar : FK\nATTR flight_id : varchar : FK\n\nENTITY FlightStatus\nPK status_id\nATTR status_id : varchar : PK\nATTR status_name : varchar\n\nREL Flight -> FlightLeg : 1 -> 1..N : FK=flight_id\nREL FlightLeg -> Airport : 1 -> 1 : FK=departure_airport_id\nREL FlightLeg -> Airport : 1 -> 1 : FK=arrival_airport_id\nREL Flight -> Airline : 1 -> 1 : FK=airline_id\nREL Flight -> Aircraft : 1 -> 1 : FK=aircraft_id\nREL Flight -> FlightStatus : 1 -> 1 : FK=flight_status\nREL Flight -> Person : 1..N -> 1..N : FK=person_id\nREL Flight -> CrewRole : 1..N -> 1 : FK=role_id",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 66177,
+    "output_tokens": 422
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.2, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 44}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 5067,
+  "transport_retries": 0
+}

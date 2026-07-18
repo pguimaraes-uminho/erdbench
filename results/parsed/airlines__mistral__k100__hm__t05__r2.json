@@ -1,0 +1,206 @@
+{
+  "run_id": "airlines__mistral__k100__hm__t05__r2",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k100__hm",
+  "domain": true,
+  "dictionary": false,
+  "rules": false,
+  "headers": "meaningful",
+  "temperature": 0.5,
+  "replicate": 2,
+  "candidate": {
+    "entities": [
+      {
+        "name": "Passenger",
+        "pk": [
+          "passport"
+        ],
+        "attrs": [
+          {
+            "name": "passport",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "customer_name",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "customer_surname",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Flight",
+        "pk": [
+          "flight_number"
+        ],
+        "attrs": [
+          {
+            "name": "flight_number",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "flight_date",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "airline_code",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "airplane_model",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "belt_number",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "status_code",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "status",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "status_date",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "status_hour",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Airline",
+        "pk": [
+          "airline_code"
+        ],
+        "attrs": [
+          {
+            "name": "airline_code",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "airline_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Airport",
+        "pk": [
+          "airport_code"
+        ],
+        "attrs": [
+          {
+            "name": "airport_code",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "airport_name",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "airport_location",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "airport_city",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Crew",
+        "pk": [
+          "license_number"
+        ],
+        "attrs": [
+          {
+            "name": "license_number",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "crew_role",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "Flight",
+        "to": "Airline",
+        "cf": "1",
+        "ct": "1",
+        "fk": "airline_code",
+        "fk_cols": [
+          "airlinecode"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airport",
+        "cf": "1",
+        "ct": "1",
+        "fk": "airport_departure",
+        "fk_cols": [
+          "airportdeparture"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airport",
+        "cf": "1",
+        "ct": "1",
+        "fk": "airport_arrival",
+        "fk_cols": [
+          "airportarrival"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Crew",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "crew_license",
+        "fk_cols": [
+          "crewlicense"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 34,
+    "lines_parsed": 34,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

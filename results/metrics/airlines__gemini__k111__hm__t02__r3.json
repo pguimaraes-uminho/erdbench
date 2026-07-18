@@ -1,0 +1,63 @@
+{
+  "run_id": "airlines__gemini__k111__hm__t02__r3",
+  "provider": "google",
+  "dataset": "airlines",
+  "cond_id": "k111__hm",
+  "domain": true,
+  "dictionary": true,
+  "rules": true,
+  "headers": "meaningful",
+  "temperature": 0.2,
+  "replicate": 3,
+  "parse_failure": false,
+  "metrics": {
+    "entities": {
+      "tp": 12,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.9231,
+      "recall": 1.0,
+      "f1": 0.96
+    },
+    "relationships": {
+      "tp": 11,
+      "fp": 2,
+      "fn": 2,
+      "precision": 0.8462,
+      "recall": 0.8462,
+      "f1": 0.8462
+    },
+    "keys": {
+      "tp": 25,
+      "fp": 3,
+      "fn": 3,
+      "precision": 0.8929,
+      "recall": 0.8929,
+      "f1": 0.8929,
+      "pk_only": {
+        "tp": 10,
+        "fp": 3,
+        "fn": 2,
+        "precision": 0.7692,
+        "recall": 0.8333,
+        "f1": 0.8
+      },
+      "fk_only": {
+        "tp": 15,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.9375,
+        "f1": 0.9677
+      }
+    },
+    "attributes": {
+      "tp": 18,
+      "fp": 5,
+      "fn": 3,
+      "precision": 0.7826,
+      "recall": 0.8571,
+      "f1": 0.8182
+    }
+  }
+}

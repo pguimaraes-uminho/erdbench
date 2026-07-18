@@ -1,0 +1,36 @@
+{
+  "run_id": "airlines__baseline__k000__hc__t00__r1",
+  "provider": "baseline",
+  "model_requested": "deterministic-profiling-v1",
+  "model_returned": "deterministic-profiling-v1",
+  "dataset": "airlines",
+  "cond_id": "k000__hc",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.0,
+  "replicate": 1,
+  "seed": null,
+  "top_p": null,
+  "max_tokens": null,
+  "prompt_sha256": null,
+  "prompt_file": "datasets/samples/airlines_sample.csv (header=cryptic)",
+  "response_text": "ENTITY C2d8b16\nPK C_2D8B16\nATTR C_2D8B16 : varchar : PK\nATTR C_A89B15 : varchar\nENTITY C308094\nPK C_308094\nATTR C_308094 : varchar : PK\nATTR C_80CBA4 : varchar\nENTITY C50188a\nPK C_50188A\nATTR C_50188A : varchar : PK\nATTR C_8C12D6 : varchar\nENTITY C713e83\nPK C_713E83\nATTR C_713E83 : varchar : PK\nATTR C_10EC5F : varchar\nENTITY C7d36d4\nPK C_7D36D4\nATTR C_7D36D4 : varchar : PK\nATTR C_EC6E73 : varchar : FK\nENTITY CB7feba\nPK C_B7FEBA\nATTR C_B7FEBA : varchar : PK\nATTR C_713E83 : varchar : FK\nATTR C_C3863A : varchar\nENTITY CBbace0\nPK C_BBACE0\nATTR C_BBACE0 : varchar : PK\nATTR C_073C16 : varchar\nENTITY CCbc471\nPK C_CBC471\nATTR C_CBC471 : varchar : PK\nATTR C_0F6080 : varchar\nATTR C_5D89B3 : varchar\nENTITY CE61ba3\nPK C_E61BA3\nATTR C_E61BA3 : varchar : PK\nATTR C_6F8658 : varchar\nENTITY CEc6e73\nPK C_EC6E73\nATTR C_EC6E73 : varchar : PK\nATTR C_302B15 : varchar\nATTR C_308094 : varchar : FK\nENTITY Record\nPK C_8EA257, C_CBC471\nATTR C_5C3219 : varchar\nATTR C_EB6393 : date\nATTR C_7C1EC3 : varchar\nATTR C_8EA257 : date : PK\nATTR C_01DE47 : time\nATTR C_2D8B16 : varchar : FK\nATTR C_50188A : varchar : FK\nATTR C_7D36D4 : varchar : FK\nATTR C_B7FEBA : varchar : FK\nATTR C_BBACE0 : varchar : FK\nATTR C_CBC471 : varchar : PK : FK\nATTR C_E61BA3 : varchar : FK\nREL Record -> C2d8b16 : 0..N -> 1 : FK=C_2D8B16\nREL Record -> C50188a : 0..N -> 1 : FK=C_50188A\nREL Record -> C7d36d4 : 0..N -> 1 : FK=C_7D36D4\nREL Record -> CB7feba : 0..N -> 1 : FK=C_B7FEBA\nREL Record -> CBbace0 : 0..N -> 1 : FK=C_BBACE0\nREL Record -> CCbc471 : 0..N -> 1 : FK=C_CBC471\nREL Record -> CE61ba3 : 0..N -> 1 : FK=C_E61BA3\nREL C7d36d4 -> CEc6e73 : 0..N -> 1 : FK=C_EC6E73\nREL CB7feba -> C713e83 : 0..N -> 1 : FK=C_713E83\nREL CEc6e73 -> C308094 : 0..N -> 1 : FK=C_308094",
+  "finish_reason": "deterministic",
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"algorithm\": \"profiling-v1\", \"headers\": \"cryptic\"}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "none (local)"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "no API call (deterministic)",
+  "latency_ms": 0,
+  "transport_retries": 0,
+  "generated_at": "2026-07-17T04:30:25"
+}

@@ -1,0 +1,11 @@
+{
+  "businessRules": [
+    "The origin airport of a flight must be different from its destination airport.",
+    "At most one baggage belt is assigned to a flight, at the destination airport.",
+    "Every flight has a crew composed of one pilot, one co-pilot, and one or more cabin crew members; a crew member works on many flights over time.",
+    "A city can have multiple airports.",
+    "An airplane can make many flights.",
+    "A passenger books at most one seat per flight.",
+    "A flight's status changes over time (e.g., scheduled, boarding, departed) and every status change is recorded with its date and time."
+  ]
+}

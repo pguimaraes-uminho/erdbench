@@ -1,0 +1,209 @@
+{
+  "run_id": "manufacturing__gemini__k111__hc__t05__r1",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "dataset": "manufacturing",
+  "cond_id": "k111__hc",
+  "domain": true,
+  "dictionary": true,
+  "rules": true,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 1,
+  "candidate": {
+    "entities": [
+      {
+        "name": "Client",
+        "pk": [
+          "C_659042"
+        ],
+        "attrs": [
+          {
+            "name": "C_659042",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_D67EB9",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "ProductionOrder",
+        "pk": [
+          "C_CB6EF1"
+        ],
+        "attrs": [
+          {
+            "name": "C_CB6EF1",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_0E8763",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "C_659042",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      },
+      {
+        "name": "Material",
+        "pk": [
+          "C_F102F4"
+        ],
+        "attrs": [
+          {
+            "name": "C_F102F4",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_F8CD0E",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "OperationType",
+        "pk": [
+          "C_AC18FC"
+        ],
+        "attrs": [
+          {
+            "name": "C_AC18FC",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_6112B3",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "WorkCenter",
+        "pk": [
+          "C_47C7FC"
+        ],
+        "attrs": [
+          {
+            "name": "C_47C7FC",
+            "is_pk": true,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "OperationExecution",
+        "pk": [
+          "C_E488DF"
+        ],
+        "attrs": [
+          {
+            "name": "C_E488DF",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_323748",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "C_1A7B30",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "C_CB6EF1",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "C_F102F4",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "C_AC18FC",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "C_47C7FC",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "ProductionOrder",
+        "to": "Client",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_659042",
+        "fk_cols": [
+          "c659042"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "ProductionOrder",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_CB6EF1",
+        "fk_cols": [
+          "ccb6ef1"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "Material",
+        "cf": "0..N",
+        "ct": "0..N",
+        "fk": "C_F102F4",
+        "fk_cols": [
+          "cf102f4"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "OperationType",
+        "cf": "0..N",
+        "ct": "0..N",
+        "fk": "C_AC18FC",
+        "fk_cols": [
+          "cac18fc"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "WorkCenter",
+        "cf": "0..N",
+        "ct": "0..N",
+        "fk": "C_47C7FC",
+        "fk_cols": [
+          "c47c7fc"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 34,
+    "lines_parsed": 34,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

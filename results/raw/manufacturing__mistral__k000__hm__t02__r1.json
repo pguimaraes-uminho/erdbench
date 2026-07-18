@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__mistral__k000__hm__t02__r1",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hm",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "meaningful",
+  "temperature": 0.2,
+  "replicate": 1,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "a4eb7e86c8307fa9ea153eb2d8cc3e1e6a2065c2b43f8053ad748ad9d6b9298c",
+  "prompt_file": "prompts/rendered/manufacturing__k000__hm.txt",
+  "response_text": "ENTITY Client\nPK client_id\nATTR client_id : integer : PK\nATTR client_name : varchar\n\nENTITY Order\nPK n_order\nATTR n_order : integer : PK\nATTR client_id : integer : FK\nATTR date : date\n\nENTITY Material\nPK n_material\nATTR n_material : integer : PK\nATTR description_material : varchar\n\nENTITY Operation\nPK n_operation\nATTR n_operation : integer : PK\nATTR description_operation : varchar\n\nENTITY Workcenter\nPK workcenter_id\nATTR workcenter_id : integer : PK\n\nENTITY OrderOperation\nPK order_operation_id\nATTR order_operation_id : integer : PK\nATTR n_order : integer : FK\nATTR n_material : integer : FK\nATTR n_operation : integer : FK\nATTR workcenter_id : integer : FK\nATTR timestamp : timestamp\nATTR quantity : float\n\nREL OrderOperation -> Client : 1 -> 0..N : FK=n_order\nREL OrderOperation -> Order : 1 -> 1 : FK=n_order\nREL OrderOperation -> Material : 1 -> 1 : FK=n_material\nREL OrderOperation -> Operation : 1 -> 1 : FK=n_operation\nREL OrderOperation -> Workcenter : 1 -> 1 : FK=workcenter_id",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 11522,
+    "output_tokens": 289
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.2, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 42}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 2370,
+  "transport_retries": 0
+}

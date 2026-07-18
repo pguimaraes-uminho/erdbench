@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__gemini__k000__hn__t05__r3",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hn",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.5,
+  "replicate": 3,
+  "seed": 44,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "2a777681ad983c822284396e6cbc925578ab6d17c529819dc19d0398557bf5bd",
+  "prompt_file": "prompts/rendered/manufacturing__k000__hn.txt",
+  "response_text": "ENTITY Client\nPK client_id\nATTR client_id : integer : PK\nATTR client_name : varchar\nENTITY Order\nPK order_id\nATTR order_id : integer : PK\nATTR client_id : integer : FK\nATTR order_date : date\nENTITY Material\nPK material_id\nATTR material_id : integer : PK\nATTR material_name : varchar\nENTITY Operation\nPK operation_id\nATTR operation_id : integer : PK\nATTR operation_name : varchar\nENTITY OrderItem\nPK order_item_id\nATTR order_item_id : integer : PK\nATTR order_id : integer : FK\nATTR material_id : integer : FK\nATTR operation_id : integer : FK\nATTR quantity : integer\nATTR scheduled_datetime : datetime\nATTR price : decimal\nREL Order -> Client : 0..N -> 1 : FK=client_id\nREL OrderItem -> Order : 0..N -> 1 : FK=order_id\nREL OrderItem -> Material : 0..N -> 1 : FK=material_id\nREL OrderItem -> Operation : 0..N -> 1 : FK=operation_id",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 11516,
+    "output_tokens": 249
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.5, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 44, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 1880,
+  "transport_retries": 0
+}

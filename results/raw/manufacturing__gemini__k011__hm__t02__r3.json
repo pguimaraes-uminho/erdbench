@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__gemini__k011__hm__t02__r3",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "manufacturing",
+  "cond_id": "k011__hm",
+  "domain": false,
+  "dictionary": true,
+  "rules": true,
+  "headers": "meaningful",
+  "temperature": 0.2,
+  "replicate": 3,
+  "seed": 44,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "c877f5e3cf3d7db06c9c1880ee8899050cc88cdf5990ca7717e6940cbeb4e827",
+  "prompt_file": "prompts/rendered/manufacturing__k011__hm.txt",
+  "response_text": "ENTITY Client\nPK client_id\nATTR client_id : integer : PK\nATTR client_name : varchar\nENTITY Order\nPK n_order\nATTR n_order : integer : PK\nATTR date : date\nATTR client_id : integer : FK\nREL Order -> Client : 0..N -> 1 : FK=client_id\nENTITY Material\nPK n_material\nATTR n_material : integer : PK\nATTR description_material : varchar\nENTITY OperationType\nPK n_operation\nATTR n_operation : integer : PK\nATTR description_operation : varchar\nENTITY WorkCenter\nPK workcenter_id\nATTR workcenter_id : integer : PK\nENTITY OrderOperation\nPK order_operation_id\nATTR order_operation_id : integer : PK\nATTR timestamp : datetime\nATTR quantity : decimal\nATTR n_order : integer : FK\nATTR n_material : integer : FK\nATTR n_operation : integer : FK\nATTR workcenter_id : integer : FK\nREL OrderOperation -> Order : 0..N -> 1 : FK=n_order\nREL OrderOperation -> Material : 0..N -> 1 : FK=n_material\nREL OrderOperation -> OperationType : 0..N -> 1 : FK=n_operation\nREL OrderOperation -> WorkCenter : 0..N -> 1 : FK=workcenter_id",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 11857,
+    "output_tokens": 294
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.2, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 44, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 2040,
+  "transport_retries": 0
+}

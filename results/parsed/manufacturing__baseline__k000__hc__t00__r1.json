@@ -1,0 +1,237 @@
+{
+  "run_id": "manufacturing__baseline__k000__hc__t00__r1",
+  "provider": "baseline",
+  "model_requested": "deterministic-profiling-v1",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hc",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.0,
+  "replicate": 1,
+  "candidate": {
+    "entities": [
+      {
+        "name": "C323748",
+        "pk": [
+          "C_323748"
+        ],
+        "attrs": [
+          {
+            "name": "C_323748",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_0E8763",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "C659042",
+        "pk": [
+          "C_659042"
+        ],
+        "attrs": [
+          {
+            "name": "C_659042",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_D67EB9",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "CAc18fc",
+        "pk": [
+          "C_AC18FC"
+        ],
+        "attrs": [
+          {
+            "name": "C_AC18FC",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_6112B3",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "CCb6ef1",
+        "pk": [
+          "C_CB6EF1"
+        ],
+        "attrs": [
+          {
+            "name": "C_CB6EF1",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_0E8763",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "C_659042",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      },
+      {
+        "name": "CE488df",
+        "pk": [
+          "C_E488DF"
+        ],
+        "attrs": [
+          {
+            "name": "C_E488DF",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_1A7B30",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "C_323748",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "C_47C7FC",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "C_AC18FC",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "C_CB6EF1",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "C_F102F4",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      },
+      {
+        "name": "CF102f4",
+        "pk": [
+          "C_F102F4"
+        ],
+        "attrs": [
+          {
+            "name": "C_F102F4",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "C_F8CD0E",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Record",
+        "pk": [
+          "C_E488DF"
+        ],
+        "attrs": [
+          {
+            "name": "C_E488DF",
+            "is_pk": true,
+            "is_fk": true
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "Record",
+        "to": "CE488df",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_E488DF",
+        "fk_cols": [
+          "ce488df"
+        ]
+      },
+      {
+        "frm": "CCb6ef1",
+        "to": "C659042",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_659042",
+        "fk_cols": [
+          "c659042"
+        ]
+      },
+      {
+        "frm": "CE488df",
+        "to": "C323748",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_323748",
+        "fk_cols": [
+          "c323748"
+        ]
+      },
+      {
+        "frm": "CE488df",
+        "to": "CAc18fc",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_AC18FC",
+        "fk_cols": [
+          "cac18fc"
+        ]
+      },
+      {
+        "frm": "CE488df",
+        "to": "CCb6ef1",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_CB6EF1",
+        "fk_cols": [
+          "ccb6ef1"
+        ]
+      },
+      {
+        "frm": "CE488df",
+        "to": "CF102f4",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "C_F102F4",
+        "fk_cols": [
+          "cf102f4"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 39,
+    "lines_parsed": 39,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

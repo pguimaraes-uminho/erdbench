@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__gemini__k110__hm__t05__r3",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "airlines",
+  "cond_id": "k110__hm",
+  "domain": true,
+  "dictionary": true,
+  "rules": false,
+  "headers": "meaningful",
+  "temperature": 0.5,
+  "replicate": 3,
+  "seed": 44,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "fcd87351f9090b098a0c8c347930ff617a2d4a7811b229b5b729a59b91105952",
+  "prompt_file": "prompts/rendered/airlines__k110__hm.txt",
+  "response_text": "ENTITY Passenger\nPK passport\nATTR passport : varchar : PK\nATTR customer_name : varchar\nATTR customer_surname : varchar\nENTITY Location\nPK location_code\nATTR location_code : varchar : PK\nATTR city : varchar\nENTITY Airport\nPK airport_code\nATTR airport_code : varchar : PK\nATTR airport_name : varchar\nATTR location_code : varchar : FK\nENTITY Airline\nPK airline_code\nATTR airline_code : varchar : PK\nATTR airline_name : varchar\nENTITY Airplane\nPK license_number\nATTR license_number : varchar : PK\nATTR airplane_model : varchar\nENTITY Flight\nPK flight_number, flight_date\nATTR flight_number : varchar : PK\nATTR flight_date : date : PK\nATTR airline_code : varchar : FK\nATTR airport_departure : varchar : FK\nATTR airport_arrival : varchar : FK\nATTR license_number : varchar : FK\nATTR belt_number : varchar\nATTR status_code : varchar : FK\nATTR status_date : date\nATTR status_hour : time\nENTITY FlightStatus\nPK status_code\nATTR status_code : varchar : PK\nATTR status : varchar\nENTITY Crew\nPK crew_license\nATTR crew_license : varchar : PK\nATTR crew_role : varchar\nENTITY Ticket\nPK passport, flight_number, flight_date\nATTR passport : varchar : PK : FK\nATTR flight_number : varchar : PK : FK\nATTR flight_date : date : PK : FK\nATTR seat_number : varchar\nREL Airport -> Location : 0..N -> 1 : FK=location_code\nREL Flight -> Airline : 0..N -> 1 : FK=airline_code\nREL Flight -> Airport : 0..N -> 1 : FK=airport_departure\nREL Flight -> Airport : 0..N -> 1 : FK=airport_arrival\nREL Flight -> Airplane : 0..N -> 1 : FK=license_number\nREL Flight -> FlightStatus : 0..N -> 1 : FK=status_code\nREL Ticket -> Passenger : 0..N -> 1 : FK=passport\nREL Ticket -> Flight : 0..N -> 1 : FK=flight_number,flight_date\nREL Flight -> Crew : 0..N -> 0..N : FK=crew_license",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 66588,
+    "output_tokens": 500
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.5, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 44, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 2786,
+  "transport_retries": 0
+}

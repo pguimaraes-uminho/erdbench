@@ -1,0 +1,36 @@
+{
+  "run_id": "airlines__baseline__k000__hn__t00__r1",
+  "provider": "baseline",
+  "model_requested": "deterministic-profiling-v1",
+  "model_returned": "deterministic-profiling-v1",
+  "dataset": "airlines",
+  "cond_id": "k000__hn",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.0,
+  "replicate": 1,
+  "seed": null,
+  "top_p": null,
+  "max_tokens": null,
+  "prompt_sha256": null,
+  "prompt_file": "datasets/samples/airlines_sample.csv (header=none)",
+  "response_text": "ENTITY C1\nPK c1\nATTR c1 : varchar : PK\nATTR c2 : varchar\nATTR c3 : varchar\nENTITY C11\nPK c11\nATTR c11 : varchar : PK\nATTR c12 : varchar\nENTITY C13\nPK c13\nATTR c13 : varchar : PK\nATTR c14 : varchar\nATTR c15 : varchar : FK\nENTITY C15\nPK c15\nATTR c15 : varchar : PK\nATTR c16 : varchar\nENTITY C17\nPK c17\nATTR c17 : varchar : PK\nATTR c13 : varchar : FK\nENTITY C18\nPK c18\nATTR c18 : varchar : PK\nATTR c19 : varchar\nENTITY C20\nPK c20\nATTR c20 : varchar : PK\nATTR c21 : varchar\nENTITY C24\nPK c24\nATTR c24 : varchar : PK\nATTR c25 : varchar\nENTITY C7\nPK c7\nATTR c7 : varchar : PK\nATTR c8 : varchar\nENTITY C9\nPK c9\nATTR c9 : varchar : PK\nATTR c10 : varchar\nATTR c11 : varchar : FK\nENTITY Record\nPK c22, c1\nATTR c4 : varchar\nATTR c5 : date\nATTR c6 : varchar\nATTR c22 : date : PK\nATTR c23 : time\nATTR c1 : varchar : PK : FK\nATTR c17 : varchar : FK\nATTR c18 : varchar : FK\nATTR c20 : varchar : FK\nATTR c24 : varchar : FK\nATTR c7 : varchar : FK\nATTR c9 : varchar : FK\nREL Record -> C1 : 0..N -> 1 : FK=c1\nREL Record -> C17 : 0..N -> 1 : FK=c17\nREL Record -> C18 : 0..N -> 1 : FK=c18\nREL Record -> C20 : 0..N -> 1 : FK=c20\nREL Record -> C24 : 0..N -> 1 : FK=c24\nREL Record -> C7 : 0..N -> 1 : FK=c7\nREL Record -> C9 : 0..N -> 1 : FK=c9\nREL C13 -> C15 : 0..N -> 1 : FK=c15\nREL C17 -> C13 : 0..N -> 1 : FK=c13\nREL C9 -> C11 : 0..N -> 1 : FK=c11",
+  "finish_reason": "deterministic",
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"algorithm\": \"profiling-v1\", \"headers\": \"none\"}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "none (local)"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "no API call (deterministic)",
+  "latency_ms": 0,
+  "transport_retries": 0,
+  "generated_at": "2026-07-17T04:30:25"
+}

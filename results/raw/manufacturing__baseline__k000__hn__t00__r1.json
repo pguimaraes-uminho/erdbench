@@ -1,0 +1,36 @@
+{
+  "run_id": "manufacturing__baseline__k000__hn__t00__r1",
+  "provider": "baseline",
+  "model_requested": "deterministic-profiling-v1",
+  "model_returned": "deterministic-profiling-v1",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hn",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.0,
+  "replicate": 1,
+  "seed": null,
+  "top_p": null,
+  "max_tokens": null,
+  "prompt_sha256": null,
+  "prompt_file": "datasets/samples/manufacturing_sample.csv (header=none)",
+  "response_text": "ENTITY C1\nPK c1\nATTR c1 : integer : PK\nATTR c2 : varchar\nENTITY C10\nPK c10\nATTR c10 : integer : PK\nATTR c11 : datetime : FK\nATTR c12 : decimal\nATTR c3 : integer : FK\nATTR c5 : integer : FK\nATTR c7 : integer : FK\nATTR c9 : integer\nENTITY C11\nPK c11\nATTR c11 : datetime : PK\nATTR c4 : date\nENTITY C3\nPK c3\nATTR c3 : integer : PK\nATTR c1 : integer : FK\nATTR c4 : date\nENTITY C5\nPK c5\nATTR c5 : integer : PK\nATTR c6 : varchar\nENTITY C7\nPK c7\nATTR c7 : integer : PK\nATTR c8 : varchar\nENTITY Record\nPK c10\nATTR c10 : integer : PK : FK\nREL Record -> C10 : 0..N -> 1 : FK=c10\nREL C10 -> C11 : 0..N -> 1 : FK=c11\nREL C10 -> C3 : 0..N -> 1 : FK=c3\nREL C10 -> C5 : 0..N -> 1 : FK=c5\nREL C10 -> C7 : 0..N -> 1 : FK=c7\nREL C3 -> C1 : 0..N -> 1 : FK=c1",
+  "finish_reason": "deterministic",
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"algorithm\": \"profiling-v1\", \"headers\": \"none\"}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "none (local)"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "no API call (deterministic)",
+  "latency_ms": 0,
+  "transport_retries": 0,
+  "generated_at": "2026-07-17T04:30:25"
+}

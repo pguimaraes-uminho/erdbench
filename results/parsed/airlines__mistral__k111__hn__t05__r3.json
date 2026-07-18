@@ -1,0 +1,342 @@
+{
+  "run_id": "airlines__mistral__k111__hn__t05__r3",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k111__hn",
+  "domain": true,
+  "dictionary": true,
+  "rules": true,
+  "headers": "none",
+  "temperature": 0.5,
+  "replicate": 3,
+  "candidate": {
+    "entities": [
+      {
+        "name": "Passenger",
+        "pk": [
+          "c1"
+        ],
+        "attrs": [
+          {
+            "name": "c1",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c2",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "c3",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Airline",
+        "pk": [
+          "c7"
+        ],
+        "attrs": [
+          {
+            "name": "c7",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c8",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Airport",
+        "pk": [
+          "c9"
+        ],
+        "attrs": [
+          {
+            "name": "c9",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c10",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "c11",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "c12",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Flight",
+        "pk": [
+          "c4"
+        ],
+        "attrs": [
+          {
+            "name": "c4",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "c5",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "c17",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "c18",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "c19",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "FlightStatus",
+        "pk": [
+          "c20"
+        ],
+        "attrs": [
+          {
+            "name": "c20",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c21",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "CrewMember",
+        "pk": [
+          "c24"
+        ],
+        "attrs": [
+          {
+            "name": "c24",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c25",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "FlightStatusLog",
+        "pk": [
+          "c4",
+          "c22",
+          "c23"
+        ],
+        "attrs": [
+          {
+            "name": "c4",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "c20",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "c22",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c23",
+            "is_pk": true,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "CrewAssignment",
+        "pk": [
+          "c4",
+          "c24"
+        ],
+        "attrs": [
+          {
+            "name": "c4",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "c24",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "c25",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "SeatAssignment",
+        "pk": [
+          "c1",
+          "c4"
+        ],
+        "attrs": [
+          {
+            "name": "c1",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "c4",
+            "is_pk": true,
+            "is_fk": true
+          },
+          {
+            "name": "c6",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "Flight",
+        "to": "Airline",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "c7",
+        "fk_cols": [
+          "c7"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airport",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "c9",
+        "fk_cols": [
+          "c9"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airport",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "c13",
+        "fk_cols": [
+          "c13"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airplane",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "c18",
+        "fk_cols": [
+          "c18"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "FlightStatusLog",
+        "cf": "1..N",
+        "ct": "1..N",
+        "fk": "c4",
+        "fk_cols": [
+          "c4"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "BaggageBelt",
+        "cf": "0..1",
+        "ct": "1",
+        "fk": "c17",
+        "fk_cols": [
+          "c17"
+        ]
+      },
+      {
+        "frm": "CrewAssignment",
+        "to": "Flight",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "c4",
+        "fk_cols": [
+          "c4"
+        ]
+      },
+      {
+        "frm": "CrewAssignment",
+        "to": "CrewMember",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "c24",
+        "fk_cols": [
+          "c24"
+        ]
+      },
+      {
+        "frm": "SeatAssignment",
+        "to": "Passenger",
+        "cf": "1",
+        "ct": "1",
+        "fk": "c1",
+        "fk_cols": [
+          "c1"
+        ]
+      },
+      {
+        "frm": "SeatAssignment",
+        "to": "Flight",
+        "cf": "1",
+        "ct": "1",
+        "fk": "c4",
+        "fk_cols": [
+          "c4"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 56,
+    "lines_parsed": 56,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

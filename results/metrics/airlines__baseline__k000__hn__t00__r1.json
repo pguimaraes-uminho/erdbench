@@ -1,0 +1,63 @@
+{
+  "run_id": "airlines__baseline__k000__hn__t00__r1",
+  "provider": "baseline",
+  "dataset": "airlines",
+  "cond_id": "k000__hn",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.0,
+  "replicate": 1,
+  "parse_failure": false,
+  "metrics": {
+    "entities": {
+      "tp": 0,
+      "fp": 11,
+      "fn": 12,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "relationships": {
+      "tp": 0,
+      "fp": 10,
+      "fn": 13,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "keys": {
+      "tp": 0,
+      "fp": 21,
+      "fn": 28,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pk_only": {
+        "tp": 0,
+        "fp": 11,
+        "fn": 12,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "fk_only": {
+        "tp": 0,
+        "fp": 10,
+        "fn": 16,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "attributes": {
+      "tp": 0,
+      "fp": 25,
+      "fn": 21,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    }
+  }
+}

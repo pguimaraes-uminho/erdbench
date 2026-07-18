@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__gemini__k010__hc__t00__r2",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "airlines",
+  "cond_id": "k010__hc",
+  "domain": false,
+  "dictionary": true,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.0,
+  "replicate": 2,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "ac33f4364efaf50bb76e71daa7db7e7d740ffa5ed9fd71de2165434cffd1ef22",
+  "prompt_file": "prompts/rendered/airlines__k010__hc.txt",
+  "response_text": "ENTITY Passenger\nPK C_CBC471\nATTR C_CBC471 : varchar : PK\nATTR C_0F6080 : varchar\nATTR C_5D89B3 : varchar\nENTITY Airline\nPK C_2D8B16\nATTR C_2D8B16 : varchar : PK\nATTR C_A89B15 : varchar\nENTITY Location\nPK C_713E83\nATTR C_713E83 : varchar : PK\nATTR C_10EC5F : varchar\nENTITY Airport\nPK C_B7FEBA\nATTR C_B7FEBA : varchar : PK\nATTR C_C3863A : varchar\nATTR C_713E83 : varchar : FK\nREL Airport -> Location : 0..N -> 1 : FK=C_713E83\nENTITY BaggageBelt\nPK C_7D36D4\nATTR C_7D36D4 : varchar : PK\nENTITY Airplane\nPK C_50188A\nATTR C_50188A : varchar : PK\nATTR C_8C12D6 : varchar\nENTITY FlightStatus\nPK C_BBACE0\nATTR C_BBACE0 : varchar : PK\nATTR C_073C16 : varchar\nENTITY CrewMember\nPK C_E61BA3\nATTR C_E61BA3 : varchar : PK\nATTR C_6F8658 : varchar\nENTITY Flight\nPK C_5C3219, C_EB6393\nATTR C_5C3219 : varchar : PK\nATTR C_EB6393 : date : PK\nATTR C_2D8B16 : varchar : FK\nATTR C_B7FEBA : varchar : FK\nATTR C_EC6E73 : varchar : FK\nATTR C_7D36D4 : varchar : FK\nATTR C_50188A : varchar : FK\nATTR C_BBACE0 : varchar : FK\nATTR C_8EA257 : date\nATTR C_01DE47 : time\nREL Flight -> Airline : 0..N -> 1 : FK=C_2D8B16\nREL Flight -> Airport : 0..N -> 1 : FK=C_B7FEBA\nREL Flight -> Airport : 0..N -> 1 : FK=C_EC6E73\nREL Flight -> BaggageBelt : 0..N -> 0..1 : FK=C_7D36D4\nREL Flight -> Airplane : 0..N -> 1 : FK=C_50188A\nREL Flight -> FlightStatus : 0..N -> 1 : FK=C_BBACE0\nENTITY PassengerFlight\nPK C_CBC471, C_5C3219, C_EB6393\nATTR C_CBC471 : varchar : PK : FK\nATTR C_5C3219 : varchar : PK : FK\nATTR C_EB6393 : date : PK : FK\nATTR C_7C1EC3 : varchar\nREL PassengerFlight -> Passenger : 0..N -> 1 : FK=C_CBC471\nREL PassengerFlight -> Flight : 0..N -> 1 : FK=C_5C3219,C_EB6393\nENTITY CrewFlight\nPK C_E61BA3, C_5C3219, C_EB6393\nATTR C_E61BA3 : varchar : PK : FK\nATTR C_5C3219 : varchar : PK : FK\nATTR C_EB6393 : date : PK : FK\nREL CrewFlight -> CrewMember : 0..N -> 1 : FK=C_E61BA3\nREL CrewFlight -> Flight : 0..N -> 1 : FK=C_5C3219,C_EB6393",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 66787,
+    "output_tokens": 902
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.0, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 42, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 5043,
+  "transport_retries": 0
+}

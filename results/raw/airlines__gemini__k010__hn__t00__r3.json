@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__gemini__k010__hn__t00__r3",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "airlines",
+  "cond_id": "k010__hn",
+  "domain": false,
+  "dictionary": true,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.0,
+  "replicate": 3,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "eaa4815a62dc4777f88649903cc73f261edce057265699f129d7bb4b9a2f0364",
+  "prompt_file": "prompts/rendered/airlines__k010__hn.txt",
+  "response_text": "ENTITY Passenger\nPK c1\nATTR c1 : varchar : PK\nATTR c2 : varchar\nATTR c3 : varchar\nENTITY Airline\nPK c7\nATTR c7 : varchar : PK\nATTR c8 : varchar\nENTITY Location\nPK c11\nATTR c11 : varchar : PK\nATTR c12 : varchar\nENTITY Airport\nPK c9\nATTR c9 : varchar : PK\nATTR c10 : varchar\nATTR c11 : varchar : FK\nREL Airport -> Location : 0..N -> 1 : FK=c11\nENTITY Airplane\nPK c18\nATTR c18 : varchar : PK\nATTR c19 : varchar\nENTITY Flight\nPK c4\nATTR c4 : varchar : PK\nATTR c7 : varchar : FK\nATTR c9 : varchar : FK\nATTR c13 : varchar : FK\nATTR c18 : varchar : FK\nREL Flight -> Airline : 0..N -> 1 : FK=c7\nREL Flight -> Airport : 0..N -> 1 : FK=c9\nREL Flight -> Airport : 0..N -> 1 : FK=c13\nREL Flight -> Airplane : 0..N -> 1 : FK=c18\nENTITY FlightOccurrence\nPK c4, c5\nATTR c4 : varchar : PK : FK\nATTR c5 : date : PK\nATTR c17 : varchar\nREL FlightOccurrence -> Flight : 0..N -> 1 : FK=c4\nENTITY FlightStatus\nPK c4, c5, c20, c22, c23\nATTR c4 : varchar : PK : FK\nATTR c5 : date : PK : FK\nATTR c20 : varchar : PK\nATTR c21 : varchar\nATTR c22 : date : PK\nATTR c23 : time : PK\nREL FlightStatus -> FlightOccurrence : 0..N -> 1 : FK=c4,c5\nENTITY Booking\nPK c1, c4, c5\nATTR c1 : varchar : PK : FK\nATTR c4 : varchar : PK : FK\nATTR c5 : date : PK : FK\nATTR c6 : varchar\nREL Booking -> Passenger : 0..N -> 1 : FK=c1\nREL Booking -> FlightOccurrence : 0..N -> 1 : FK=c4,c5\nENTITY CrewMember\nPK c24\nATTR c24 : varchar : PK\nATTR c25 : varchar\nENTITY FlightCrew\nPK c4, c5, c24\nATTR c4 : varchar : PK : FK\nATTR c5 : date : PK : FK\nATTR c24 : varchar : PK : FK\nREL FlightCrew -> FlightOccurrence : 0..N -> 1 : FK=c4,c5\nREL FlightCrew -> CrewMember : 0..N -> 1 : FK=c24",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 66549,
+    "output_tokens": 627
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.0, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 42, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 4328,
+  "transport_retries": 0
+}

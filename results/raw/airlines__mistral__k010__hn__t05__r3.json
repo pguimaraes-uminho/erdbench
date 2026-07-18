@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__mistral__k010__hn__t05__r3",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k010__hn",
+  "domain": false,
+  "dictionary": true,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.5,
+  "replicate": 3,
+  "seed": 44,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "eaa4815a62dc4777f88649903cc73f261edce057265699f129d7bb4b9a2f0364",
+  "prompt_file": "prompts/rendered/airlines__k010__hn.txt",
+  "response_text": "ENTITY Passenger\nPK c1\nATTR c1 : varchar : PK\nATTR c2 : varchar\nATTR c3 : varchar\n\nENTITY Flight\nPK c4\nATTR c4 : varchar : PK\nATTR c5 : date\nATTR c6 : varchar\nATTR c17 : varchar\nATTR c18 : varchar\nATTR c19 : varchar\n\nENTITY Airline\nPK c7\nATTR c7 : varchar : PK\nATTR c8 : varchar\n\nENTITY Airport\nPK c9\nATTR c9 : varchar : PK\nATTR c10 : varchar\nATTR c11 : varchar\nATTR c12 : varchar\n\nENTITY Location\nPK c11\nATTR c11 : varchar : PK\nATTR c12 : varchar\n\nENTITY ArrivalAirport\nPK c13\nATTR c13 : varchar : PK\nATTR c14 : varchar\nATTR c15 : varchar\nATTR c16 : varchar\n\nENTITY Location2\nPK c15\nATTR c15 : varchar : PK\nATTR c16 : varchar\n\nENTITY CrewMember\nPK c24\nATTR c24 : varchar : PK\nATTR c25 : varchar\n\nENTITY FlightStatus\nPK c20\nATTR c20 : varchar : PK\nATTR c21 : varchar\n\nREL Passenger -> Flight : 1..N -> 1 : FK=c4\nREL Flight -> Airline : 1..N -> 1 : FK=c7\nREL Flight -> Airport : 1..N -> 1 : FK=c9\nREL Flight -> ArrivalAirport : 1..N -> 1 : FK=c13\nREL Flight -> FlightStatus : 1..N -> 1 : FK=c20\nREL Flight -> CrewMember : 1..N -> 1..N : FK=c24",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 66505,
+    "output_tokens": 419
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.5, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 44}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 4686,
+  "transport_retries": 0
+}

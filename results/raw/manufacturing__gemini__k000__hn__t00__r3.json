@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__gemini__k000__hn__t00__r3",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hn",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.0,
+  "replicate": 3,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "2a777681ad983c822284396e6cbc925578ab6d17c529819dc19d0398557bf5bd",
+  "prompt_file": "prompts/rendered/manufacturing__k000__hn.txt",
+  "response_text": "ENTITY Client\nPK client_id\nATTR client_id : integer : PK\nATTR client_name : varchar\nENTITY Schedule\nPK schedule_id\nATTR schedule_id : integer : PK\nATTR client_id : integer : FK\nATTR schedule_date : date\nENTITY Material\nPK material_id\nATTR material_id : integer : PK\nATTR material_name : varchar\nENTITY Operation\nPK operation_id\nATTR operation_id : integer : PK\nATTR operation_name : varchar\nENTITY ScheduleDetail\nPK schedule_id, material_id, operation_id\nATTR schedule_id : integer : PK : FK\nATTR material_id : integer : PK : FK\nATTR operation_id : integer : PK : FK\nATTR c7 : integer\nATTR c9 : integer\nATTR c10 : integer\nATTR c11 : datetime\nATTR c12 : decimal\nREL ScheduleDetail -> Schedule : 0..N -> 1 : FK=schedule_id\nREL ScheduleDetail -> Material : 0..N -> 1 : FK=material_id\nREL ScheduleDetail -> Operation : 0..N -> 1 : FK=operation_id\nREL Schedule -> Client : 0..N -> 1 : FK=client_id",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 11516,
+    "output_tokens": 266
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.0, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 42, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 1963,
+  "transport_retries": 0
+}

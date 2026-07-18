@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__mistral__k111__hn__t02__r1",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k111__hn",
+  "domain": true,
+  "dictionary": true,
+  "rules": true,
+  "headers": "none",
+  "temperature": 0.2,
+  "replicate": 1,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "fa2bd3fcc68cfda6b923a7bf603dab0eef1ddd8928848abf90ee5362393888fd",
+  "prompt_file": "prompts/rendered/airlines__k111__hn.txt",
+  "response_text": "ENTITY Passenger\nPK c1\nATTR c1 : varchar : PK\nATTR c2 : varchar\nATTR c3 : varchar\n\nENTITY Flight\nPK c4\nATTR c4 : varchar : PK\nATTR c5 : date\nATTR c6 : varchar\nATTR c17 : varchar\nATTR c18 : varchar\nATTR c19 : varchar\n\nENTITY Airline\nPK c7\nATTR c7 : varchar : PK\nATTR c8 : varchar\n\nENTITY Airport\nPK c9\nATTR c9 : varchar : PK\nATTR c10 : varchar\nATTR c11 : varchar\nATTR c12 : varchar\n\nENTITY ArrivalAirport\nPK c13\nATTR c13 : varchar : PK\nATTR c14 : varchar\nATTR c15 : varchar\nATTR c16 : varchar\n\nENTITY BaggageBelt\nPK c17\nATTR c17 : varchar : PK\n\nENTITY Airplane\nPK c18\nATTR c18 : varchar : PK\nATTR c19 : varchar\n\nENTITY FlightStatus\nPK c20\nATTR c20 : varchar : PK\nATTR c21 : varchar\n\nENTITY CrewMember\nPK c24\nATTR c24 : varchar : PK\nATTR c25 : varchar\n\nENTITY FlightStatusHistory\nPK c4, c20, c22, c23\nATTR c4 : varchar : PK : FK\nATTR c20 : varchar : PK : FK\nATTR c22 : date\nATTR c23 : time\n\nREL Flight -> Airline : 1 -> 1 : FK=c7\nREL Flight -> Airport : 1 -> 1 : FK=c9\nREL Flight -> ArrivalAirport : 1 -> 1 : FK=c13\nREL Flight -> BaggageBelt : 0..1 -> 1 : FK=c17\nREL Flight -> Airplane : 1 -> 1 : FK=c18\nREL Flight -> FlightStatusHistory : 1 -> 1..N : FK=c4\nREL Passenger -> Flight : 1..N -> 1 : FK=c4\nREL CrewMember -> Flight : 1..N -> 1 : FK=c4",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 66693,
+    "output_tokens": 505
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.2, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 42}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 6037,
+  "transport_retries": 0
+}

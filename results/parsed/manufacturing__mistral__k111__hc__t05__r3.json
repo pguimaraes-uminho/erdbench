@@ -1,0 +1,204 @@
+{
+  "run_id": "manufacturing__mistral__k111__hc__t05__r3",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "dataset": "manufacturing",
+  "cond_id": "k111__hc",
+  "domain": true,
+  "dictionary": true,
+  "rules": true,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 3,
+  "candidate": {
+    "entities": [
+      {
+        "name": "Client",
+        "pk": [
+          "client_code"
+        ],
+        "attrs": [
+          {
+            "name": "client_code",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "client_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "ProductionOrder",
+        "pk": [
+          "order_code"
+        ],
+        "attrs": [
+          {
+            "name": "order_code",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "registration_date",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Material",
+        "pk": [
+          "material_code"
+        ],
+        "attrs": [
+          {
+            "name": "material_code",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "material_description",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "OperationType",
+        "pk": [
+          "operation_type_code"
+        ],
+        "attrs": [
+          {
+            "name": "operation_type_code",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "operation_type_description",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "WorkCenter",
+        "pk": [
+          "work_center_code"
+        ],
+        "attrs": [
+          {
+            "name": "work_center_code",
+            "is_pk": true,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "OperationExecution",
+        "pk": [
+          "execution_id"
+        ],
+        "attrs": [
+          {
+            "name": "execution_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "start_datetime",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "quantity",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "order_code",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "material_code",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "operation_type_code",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "work_center_code",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "OperationExecution",
+        "to": "Client",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "client_code",
+        "fk_cols": [
+          "clientcode"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "ProductionOrder",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "order_code",
+        "fk_cols": [
+          "ordercode"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "Material",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "material_code",
+        "fk_cols": [
+          "materialcode"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "OperationType",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "operation_type_code",
+        "fk_cols": [
+          "operationtypecode"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "WorkCenter",
+        "cf": "1",
+        "ct": "1..N",
+        "fk": "work_center_code",
+        "fk_cols": [
+          "workcentercode"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 33,
+    "lines_parsed": 33,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

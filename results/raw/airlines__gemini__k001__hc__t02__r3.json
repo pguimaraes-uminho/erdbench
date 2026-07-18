@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__gemini__k001__hc__t02__r3",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "airlines",
+  "cond_id": "k001__hc",
+  "domain": false,
+  "dictionary": false,
+  "rules": true,
+  "headers": "cryptic",
+  "temperature": 0.2,
+  "replicate": 3,
+  "seed": 44,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "db6c84fc77e4c3213d1cbe0b839963193adfb327a3b177cb1a9137a0aa353461",
+  "prompt_file": "prompts/rendered/airlines__k001__hc.txt",
+  "response_text": "ENTITY City\nPK city_id\nATTR city_id : varchar : PK\nATTR city_name : varchar\nENTITY Airport\nPK airport_id\nATTR airport_id : varchar : PK\nATTR airport_name : varchar\nATTR city_id : varchar : FK\nENTITY Airline\nPK airline_id\nATTR airline_id : varchar : PK\nATTR airline_name : varchar\nENTITY AirplaneModel\nPK model_name\nATTR model_name : varchar : PK\nENTITY Airplane\nPK registration_number\nATTR registration_number : varchar : PK\nATTR model_name : varchar : FK\nENTITY BaggageBelt\nPK belt_id\nATTR belt_id : varchar : PK\nENTITY Flight\nPK flight_id, flight_date\nATTR flight_id : varchar : PK\nATTR flight_date : date : PK\nATTR airline_id : varchar : FK\nATTR origin_airport_id : varchar : FK\nATTR destination_airport_id : varchar : FK\nATTR baggage_belt_id : varchar : FK\nATTR registration_number : varchar : FK\nENTITY FlightStatus\nPK flight_id, flight_date, status_date, status_time\nATTR flight_id : varchar : PK : FK\nATTR flight_date : date : PK : FK\nATTR status_code : varchar\nATTR status_description : varchar\nATTR status_date : date : PK\nATTR status_time : time : PK\nENTITY Passenger\nPK passenger_id\nATTR passenger_id : varchar : PK\nATTR first_name : varchar\nATTR last_name : varchar\nENTITY Booking\nPK passenger_id, flight_id, flight_date\nATTR passenger_id : varchar : PK : FK\nATTR flight_id : varchar : PK : FK\nATTR flight_date : date : PK : FK\nATTR seat_number : varchar\nENTITY CrewMember\nPK crew_id\nATTR crew_id : varchar : PK\nATTR first_name : varchar\nATTR last_name : varchar\nATTR role : varchar\nENTITY FlightCrew\nPK flight_id, flight_date, crew_id\nATTR flight_id : varchar : PK : FK\nATTR flight_date : date : PK : FK\nATTR crew_id : varchar : PK : FK\nREL Airport -> City : 0..N -> 1 : FK=city_id\nREL Flight -> Airline : 0..N -> 1 : FK=airline_id\nREL Flight -> Airport : 0..N -> 1 : FK=origin_airport_id\nREL Flight -> Airport : 0..N -> 1 : FK=destination_airport_id\nREL Flight -> BaggageBelt : 0..N -> 0..1 : FK=baggage_belt_id\nREL Flight -> Airplane : 0..N -> 1 : FK=registration_number\nREL Airplane -> AirplaneModel : 0..N -> 1 : FK=model_name\nREL FlightStatus -> Flight : 0..N -> 1 : FK=flight_id,flight_date\nREL Booking -> Passenger : 0..N -> 1 : FK=passenger_id\nREL Booking -> Flight : 0..N -> 1 : FK=flight_id,flight_date\nREL FlightCrew -> Flight : 0..N -> 1 : FK=flight_id,flight_date\nREL FlightCrew -> CrewMember : 0..N -> 0..N : FK=crew_id",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 66471,
+    "output_tokens": 731
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.2, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 44, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 3757,
+  "transport_retries": 0
+}

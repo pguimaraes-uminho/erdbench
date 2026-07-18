@@ -1,0 +1,63 @@
+{
+  "run_id": "manufacturing__mistral__k000__hc__t05__r2",
+  "provider": "mistral",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hc",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 2,
+  "parse_failure": false,
+  "metrics": {
+    "entities": {
+      "tp": 3,
+      "fp": 1,
+      "fn": 3,
+      "precision": 0.75,
+      "recall": 0.5,
+      "f1": 0.6
+    },
+    "relationships": {
+      "tp": 0,
+      "fp": 3,
+      "fn": 5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "keys": {
+      "tp": 1,
+      "fp": 6,
+      "fn": 10,
+      "precision": 0.1429,
+      "recall": 0.0909,
+      "f1": 0.1111,
+      "pk_only": {
+        "tp": 1,
+        "fp": 3,
+        "fn": 5,
+        "precision": 0.25,
+        "recall": 0.1667,
+        "f1": 0.2
+      },
+      "fk_only": {
+        "tp": 0,
+        "fp": 3,
+        "fn": 5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "attributes": {
+      "tp": 2,
+      "fp": 9,
+      "fn": 10,
+      "precision": 0.1818,
+      "recall": 0.1667,
+      "f1": 0.1739
+    }
+  }
+}

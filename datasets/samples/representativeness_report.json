@@ -1,0 +1,365 @@
+{
+  "airlines": {
+    "dataset": "airlines",
+    "params": {
+      "max_cardinality": 50,
+      "min_occurrences": 2,
+      "group_keys": [
+        "flight_number",
+        "flight_date"
+      ]
+    },
+    "full_rows": 1000,
+    "sample_rows": 536,
+    "full_groups": 80,
+    "sample_groups": 43,
+    "coverage_columns": [
+      "flight_number",
+      "flight_date",
+      "seat_number",
+      "airline_code",
+      "airline_name",
+      "airport_departure",
+      "departure_name",
+      "departure_location",
+      "departure_city",
+      "airport_arrival",
+      "arrival_name",
+      "arrival_location",
+      "arrival_city",
+      "belt_number",
+      "license_number",
+      "airplane_model",
+      "status_code",
+      "status",
+      "status_date",
+      "status_hour",
+      "crew_license",
+      "crew_role"
+    ],
+    "per_column": {
+      "passport": {
+        "is_coverage_target": false,
+        "distinct_full": 250,
+        "distinct_in_sample": 249,
+        "distinct_coverage_pct": 99.6,
+        "values_ge2_full": 249,
+        "values_ge2_in_sample": 189
+      },
+      "customer_name": {
+        "is_coverage_target": false,
+        "distinct_full": 80,
+        "distinct_in_sample": 80,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 80,
+        "values_ge2_in_sample": 80
+      },
+      "customer_surname": {
+        "is_coverage_target": false,
+        "distinct_full": 60,
+        "distinct_in_sample": 60,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 60,
+        "values_ge2_in_sample": 60
+      },
+      "flight_number": {
+        "is_coverage_target": true,
+        "distinct_full": 20,
+        "distinct_in_sample": 20,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 20,
+        "values_ge2_in_sample": 20
+      },
+      "flight_date": {
+        "is_coverage_target": true,
+        "distinct_full": 40,
+        "distinct_in_sample": 40,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 40,
+        "values_ge2_in_sample": 40
+      },
+      "seat_number": {
+        "is_coverage_target": true,
+        "distinct_full": 30,
+        "distinct_in_sample": 30,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 30,
+        "values_ge2_in_sample": 30
+      },
+      "airline_code": {
+        "is_coverage_target": true,
+        "distinct_full": 10,
+        "distinct_in_sample": 10,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 10,
+        "values_ge2_in_sample": 10
+      },
+      "airline_name": {
+        "is_coverage_target": true,
+        "distinct_full": 10,
+        "distinct_in_sample": 10,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 10,
+        "values_ge2_in_sample": 10
+      },
+      "airport_departure": {
+        "is_coverage_target": true,
+        "distinct_full": 15,
+        "distinct_in_sample": 15,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 15,
+        "values_ge2_in_sample": 15
+      },
+      "departure_name": {
+        "is_coverage_target": true,
+        "distinct_full": 15,
+        "distinct_in_sample": 15,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 15,
+        "values_ge2_in_sample": 15
+      },
+      "departure_location": {
+        "is_coverage_target": true,
+        "distinct_full": 10,
+        "distinct_in_sample": 10,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 10,
+        "values_ge2_in_sample": 10
+      },
+      "departure_city": {
+        "is_coverage_target": true,
+        "distinct_full": 10,
+        "distinct_in_sample": 10,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 10,
+        "values_ge2_in_sample": 10
+      },
+      "airport_arrival": {
+        "is_coverage_target": true,
+        "distinct_full": 15,
+        "distinct_in_sample": 15,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 15,
+        "values_ge2_in_sample": 15
+      },
+      "arrival_name": {
+        "is_coverage_target": true,
+        "distinct_full": 15,
+        "distinct_in_sample": 15,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 15,
+        "values_ge2_in_sample": 15
+      },
+      "arrival_location": {
+        "is_coverage_target": true,
+        "distinct_full": 10,
+        "distinct_in_sample": 10,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 10,
+        "values_ge2_in_sample": 10
+      },
+      "arrival_city": {
+        "is_coverage_target": true,
+        "distinct_full": 10,
+        "distinct_in_sample": 10,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 10,
+        "values_ge2_in_sample": 10
+      },
+      "belt_number": {
+        "is_coverage_target": true,
+        "distinct_full": 30,
+        "distinct_in_sample": 30,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 30,
+        "values_ge2_in_sample": 30
+      },
+      "license_number": {
+        "is_coverage_target": true,
+        "distinct_full": 25,
+        "distinct_in_sample": 25,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 25,
+        "values_ge2_in_sample": 25
+      },
+      "airplane_model": {
+        "is_coverage_target": true,
+        "distinct_full": 5,
+        "distinct_in_sample": 5,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 5,
+        "values_ge2_in_sample": 5
+      },
+      "status_code": {
+        "is_coverage_target": true,
+        "distinct_full": 5,
+        "distinct_in_sample": 5,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 5,
+        "values_ge2_in_sample": 5
+      },
+      "status": {
+        "is_coverage_target": true,
+        "distinct_full": 5,
+        "distinct_in_sample": 5,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 5,
+        "values_ge2_in_sample": 5
+      },
+      "status_date": {
+        "is_coverage_target": true,
+        "distinct_full": 41,
+        "distinct_in_sample": 41,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 41,
+        "values_ge2_in_sample": 41
+      },
+      "status_hour": {
+        "is_coverage_target": true,
+        "distinct_full": 12,
+        "distinct_in_sample": 12,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 12,
+        "values_ge2_in_sample": 12
+      },
+      "crew_license": {
+        "is_coverage_target": true,
+        "distinct_full": 40,
+        "distinct_in_sample": 40,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 40,
+        "values_ge2_in_sample": 40
+      },
+      "crew_role": {
+        "is_coverage_target": true,
+        "distinct_full": 4,
+        "distinct_in_sample": 4,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 4,
+        "values_ge2_in_sample": 4
+      }
+    }
+  },
+  "manufacturing": {
+    "dataset": "manufacturing",
+    "params": {
+      "max_cardinality": 50,
+      "min_occurrences": 2,
+      "group_keys": [
+        "n_order"
+      ]
+    },
+    "full_rows": 1000,
+    "sample_rows": 160,
+    "full_groups": 250,
+    "sample_groups": 40,
+    "coverage_columns": [
+      "client_id",
+      "client_name",
+      "n_material",
+      "description_material",
+      "n_operation",
+      "description_operation",
+      "workcenter_id",
+      "quantity"
+    ],
+    "per_column": {
+      "client_id": {
+        "is_coverage_target": true,
+        "distinct_full": 40,
+        "distinct_in_sample": 40,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 40,
+        "values_ge2_in_sample": 40
+      },
+      "client_name": {
+        "is_coverage_target": true,
+        "distinct_full": 40,
+        "distinct_in_sample": 40,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 40,
+        "values_ge2_in_sample": 40
+      },
+      "n_order": {
+        "is_coverage_target": false,
+        "distinct_full": 250,
+        "distinct_in_sample": 40,
+        "distinct_coverage_pct": 16.0,
+        "values_ge2_full": 250,
+        "values_ge2_in_sample": 40
+      },
+      "date": {
+        "is_coverage_target": false,
+        "distinct_full": 120,
+        "distinct_in_sample": 37,
+        "distinct_coverage_pct": 30.8,
+        "values_ge2_full": 120,
+        "values_ge2_in_sample": 37
+      },
+      "n_material": {
+        "is_coverage_target": true,
+        "distinct_full": 25,
+        "distinct_in_sample": 25,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 25,
+        "values_ge2_in_sample": 25
+      },
+      "description_material": {
+        "is_coverage_target": true,
+        "distinct_full": 25,
+        "distinct_in_sample": 25,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 25,
+        "values_ge2_in_sample": 25
+      },
+      "n_operation": {
+        "is_coverage_target": true,
+        "distinct_full": 4,
+        "distinct_in_sample": 4,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 4,
+        "values_ge2_in_sample": 4
+      },
+      "description_operation": {
+        "is_coverage_target": true,
+        "distinct_full": 4,
+        "distinct_in_sample": 4,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 4,
+        "values_ge2_in_sample": 4
+      },
+      "workcenter_id": {
+        "is_coverage_target": true,
+        "distinct_full": 8,
+        "distinct_in_sample": 8,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 8,
+        "values_ge2_in_sample": 8
+      },
+      "order_operation_id": {
+        "is_coverage_target": false,
+        "distinct_full": 1000,
+        "distinct_in_sample": 160,
+        "distinct_coverage_pct": 16.0,
+        "values_ge2_full": 0,
+        "values_ge2_in_sample": 0
+      },
+      "timestamp": {
+        "is_coverage_target": false,
+        "distinct_full": 480,
+        "distinct_in_sample": 148,
+        "distinct_coverage_pct": 30.8,
+        "values_ge2_full": 480,
+        "values_ge2_in_sample": 12
+      },
+      "quantity": {
+        "is_coverage_target": true,
+        "distinct_full": 8,
+        "distinct_in_sample": 8,
+        "distinct_coverage_pct": 100.0,
+        "values_ge2_full": 8,
+        "values_ge2_in_sample": 8
+      }
+    }
+  }
+}

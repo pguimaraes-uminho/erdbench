@@ -1,0 +1,10 @@
+{
+  "businessRules": [
+    "Clients place orders; the same client may place many orders over time.",
+    "An order passes through different operations until it is completed; each operation execution consumes a material, and operations of the same order may consume different materials.",
+    "The same operation type may be related to different orders.",
+    "Operations are executed at work centers; a work center executes operations for many orders over time.",
+    "Each order has a system registration date; each operation execution has a start date and time, as well as a quantity.",
+    "Quantity must be greater than zero."
+  ]
+}

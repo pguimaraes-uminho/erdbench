@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use ERDBench, please cite the associated article (preferred-citation below)."
+title: "ERDBench"
+type: software
+authors:
+  - family-names: "Guimarães"
+    given-names: "Pedro"
+    email: "pedro.guimaraes@dsi.uminho.pt"
+    affiliation: "ALGORITMI Research Centre, University of Minho; CCG/ZGDV Institute"
+  - family-names: "Vieira"
+    given-names: "António C."
+    affiliation: "ALGORITMI Research Centre, University of Minho"
+  - family-names: "Santos"
+    given-names: "Maribel Y."
+    affiliation: "ALGORITMI Research Centre, University of Minho"
+repository-code: "https://github.com/pguimaraes-uminho/erdbench"
+license: MIT
+version: "1.0.0"
+date-released: "2026-07-19"
+preferred-citation:
+  type: article
+  title: "Evaluating Large Language Models in Conceptual Modeling: an Experimental Design"
+  journal: "Data & Knowledge Engineering"
+  authors:
+    - family-names: "Guimarães"
+      given-names: "Pedro"
+    - family-names: "Vieira"
+      given-names: "António C."
+    - family-names: "Santos"
+      given-names: "Maribel Y."
+  notes: "Under revision. The full reference and DOI will be added upon publication."

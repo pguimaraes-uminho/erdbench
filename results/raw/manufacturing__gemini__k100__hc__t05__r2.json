@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__gemini__k100__hc__t05__r2",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "manufacturing",
+  "cond_id": "k100__hc",
+  "domain": true,
+  "dictionary": false,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 2,
+  "seed": 43,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "e1f6a3f90aebed1feb5ef00551d0c7701eb0c754ffa1f1fde2004bd5d42e9de8",
+  "prompt_file": "prompts/rendered/manufacturing__k100__hc.txt",
+  "response_text": "ENTITY Client\nPK C_659042\nATTR C_659042 : integer : PK\nATTR C_D67EB9 : varchar\nENTITY Order\nPK C_CB6EF1\nATTR C_CB6EF1 : integer : PK\nATTR C_0E8763 : date\nATTR C_659042 : integer : FK\nREL Order -> Client : 0..N -> 1 : FK=C_659042\nENTITY Material\nPK C_F102F4\nATTR C_F102F4 : integer : PK\nATTR C_F8CD0E : varchar\nENTITY Operation\nPK C_AC18FC\nATTR C_AC18FC : integer : PK\nATTR C_6112B3 : varchar\nENTITY WorkCenter\nPK C_47C7FC\nATTR C_47C7FC : integer : PK\nENTITY ProductionStep\nPK C_E488DF\nATTR C_E488DF : integer : PK\nATTR C_323748 : datetime\nATTR C_1A7B30 : decimal\nATTR C_CB6EF1 : integer : FK\nATTR C_F102F4 : integer : FK\nATTR C_AC18FC : integer : FK\nATTR C_47C7FC : integer : FK\nREL ProductionStep -> Order : 0..N -> 1 : FK=C_CB6EF1\nREL ProductionStep -> Material : 0..N -> 1 : FK=C_F102F4\nREL ProductionStep -> Operation : 0..N -> 1 : FK=C_AC18FC\nREL ProductionStep -> WorkCenter : 0..N -> 1 : FK=C_47C7FC",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 11610,
+    "output_tokens": 406
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.5, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 43, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 2000,
+  "transport_retries": 0
+}

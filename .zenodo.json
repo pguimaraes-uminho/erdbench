@@ -1,0 +1,13 @@
+{
+  "title": "ERDBench: replication package for \"Evaluating Large Language Models in Conceptual Modeling: an Experimental Design\"",
+  "description": "ERDBench evaluates two large language models (Mistral Small, Gemini 2.5 Flash) and a deterministic, no-LLM profiling baseline at generating Entity-Relationship models from denormalized CSV data, under a full factorial design: three expert-knowledge factors crossed with three levels of attribute-name informativeness, on two datasets, for 870 evaluated models. The package contains the deterministic dataset generators and datasets, the expert-curated reference models with frozen synonym and accepted-key lists, every prompt exactly as submitted, the verbatim responses of every execution with full request metadata, the fully automated and deterministic evaluation pipeline, and the aggregated results. Everything downstream of the LLM calls is recomputable byte for byte without API keys.",
+  "creators": [
+    {"name": "Guimarães, Pedro", "affiliation": "ALGORITMI Research Centre, University of Minho; CCG/ZGDV Institute"},
+    {"name": "Vieira, António C.", "affiliation": "ALGORITMI Research Centre, University of Minho"},
+    {"name": "Santos, Maribel Y.", "affiliation": "ALGORITMI Research Centre, University of Minho"}
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "keywords": ["conceptual modeling", "entity-relationship model", "large language models", "benchmark", "experimental design", "data engineering", "replication package"]
+}

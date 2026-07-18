@@ -1,0 +1,219 @@
+{
+  "run_id": "manufacturing__mistral__k100__hn__t05__r3",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "dataset": "manufacturing",
+  "cond_id": "k100__hn",
+  "domain": true,
+  "dictionary": false,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.5,
+  "replicate": 3,
+  "candidate": {
+    "entities": [
+      {
+        "name": "Client",
+        "pk": [
+          "client_id"
+        ],
+        "attrs": [
+          {
+            "name": "client_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "client_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Order",
+        "pk": [
+          "order_id"
+        ],
+        "attrs": [
+          {
+            "name": "order_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "client_id",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "order_date",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "WorkCenter",
+        "pk": [
+          "work_center_id"
+        ],
+        "attrs": [
+          {
+            "name": "work_center_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "work_center_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Material",
+        "pk": [
+          "material_id"
+        ],
+        "attrs": [
+          {
+            "name": "material_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "material_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Operation",
+        "pk": [
+          "operation_id"
+        ],
+        "attrs": [
+          {
+            "name": "operation_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "operation_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "ProductionStep",
+        "pk": [
+          "production_step_id"
+        ],
+        "attrs": [
+          {
+            "name": "production_step_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "order_id",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "material_id",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "operation_id",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "work_center_id",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "step_sequence",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "start_time",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "duration_minutes",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "Order",
+        "to": "Client",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "client_id",
+        "fk_cols": [
+          "clientid"
+        ]
+      },
+      {
+        "frm": "ProductionStep",
+        "to": "Order",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "order_id",
+        "fk_cols": [
+          "orderid"
+        ]
+      },
+      {
+        "frm": "ProductionStep",
+        "to": "Material",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "material_id",
+        "fk_cols": [
+          "materialid"
+        ]
+      },
+      {
+        "frm": "ProductionStep",
+        "to": "Operation",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "operation_id",
+        "fk_cols": [
+          "operationid"
+        ]
+      },
+      {
+        "frm": "ProductionStep",
+        "to": "WorkCenter",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "work_center_id",
+        "fk_cols": [
+          "workcenterid"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 36,
+    "lines_parsed": 36,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

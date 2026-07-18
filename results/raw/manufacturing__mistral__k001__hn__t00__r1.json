@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__mistral__k001__hn__t00__r1",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "manufacturing",
+  "cond_id": "k001__hn",
+  "domain": false,
+  "dictionary": false,
+  "rules": true,
+  "headers": "none",
+  "temperature": 0.0,
+  "replicate": 1,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "220311f22c9666a0c54e09dcec0cba483d7984e6b2c7fc056fdeaefd2c275467",
+  "prompt_file": "prompts/rendered/manufacturing__k001__hn.txt",
+  "response_text": "ENTITY Client\nPK client_id\nATTR client_id : integer : PK\nATTR client_name : varchar\n\nENTITY Order\nPK order_id\nATTR order_id : integer : PK\nATTR client_id : integer : FK\nATTR registration_date : date\n\nENTITY OperationType\nPK operation_type_id\nATTR operation_type_id : varchar : PK\nATTR operation_type_name : varchar\n\nENTITY WorkCenter\nPK work_center_id\nATTR work_center_id : integer : PK\n\nENTITY Material\nPK material_id\nATTR material_id : varchar : PK\nATTR material_name : varchar\n\nENTITY OperationExecution\nPK execution_id\nATTR execution_id : integer : PK\nATTR order_id : integer : FK\nATTR operation_type_id : varchar : FK\nATTR work_center_id : integer : FK\nATTR material_id : varchar : FK\nATTR sequence : integer\nATTR start_datetime : datetime\nATTR quantity : decimal\n\nREL Order -> Client : 1..N -> 1 : FK=client_id\nREL OperationExecution -> Order : 1..N -> 1 : FK=order_id\nREL OperationExecution -> OperationType : 1..N -> 1 : FK=operation_type_id\nREL OperationExecution -> WorkCenter : 1..N -> 1 : FK=work_center_id\nREL OperationExecution -> Material : 1..N -> 1 : FK=material_id",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 11658,
+    "output_tokens": 301
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.0, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 42}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 2098,
+  "transport_retries": 0
+}

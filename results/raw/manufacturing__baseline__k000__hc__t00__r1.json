@@ -1,0 +1,36 @@
+{
+  "run_id": "manufacturing__baseline__k000__hc__t00__r1",
+  "provider": "baseline",
+  "model_requested": "deterministic-profiling-v1",
+  "model_returned": "deterministic-profiling-v1",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hc",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.0,
+  "replicate": 1,
+  "seed": null,
+  "top_p": null,
+  "max_tokens": null,
+  "prompt_sha256": null,
+  "prompt_file": "datasets/samples/manufacturing_sample.csv (header=cryptic)",
+  "response_text": "ENTITY C323748\nPK C_323748\nATTR C_323748 : datetime : PK\nATTR C_0E8763 : date\nENTITY C659042\nPK C_659042\nATTR C_659042 : integer : PK\nATTR C_D67EB9 : varchar\nENTITY CAc18fc\nPK C_AC18FC\nATTR C_AC18FC : integer : PK\nATTR C_6112B3 : varchar\nENTITY CCb6ef1\nPK C_CB6EF1\nATTR C_CB6EF1 : integer : PK\nATTR C_0E8763 : date\nATTR C_659042 : integer : FK\nENTITY CE488df\nPK C_E488DF\nATTR C_E488DF : integer : PK\nATTR C_1A7B30 : decimal\nATTR C_323748 : datetime : FK\nATTR C_47C7FC : integer\nATTR C_AC18FC : integer : FK\nATTR C_CB6EF1 : integer : FK\nATTR C_F102F4 : integer : FK\nENTITY CF102f4\nPK C_F102F4\nATTR C_F102F4 : integer : PK\nATTR C_F8CD0E : varchar\nENTITY Record\nPK C_E488DF\nATTR C_E488DF : integer : PK : FK\nREL Record -> CE488df : 0..N -> 1 : FK=C_E488DF\nREL CCb6ef1 -> C659042 : 0..N -> 1 : FK=C_659042\nREL CE488df -> C323748 : 0..N -> 1 : FK=C_323748\nREL CE488df -> CAc18fc : 0..N -> 1 : FK=C_AC18FC\nREL CE488df -> CCb6ef1 : 0..N -> 1 : FK=C_CB6EF1\nREL CE488df -> CF102f4 : 0..N -> 1 : FK=C_F102F4",
+  "finish_reason": "deterministic",
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"algorithm\": \"profiling-v1\", \"headers\": \"cryptic\"}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "none (local)"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "no API call (deterministic)",
+  "latency_ms": 0,
+  "transport_retries": 0,
+  "generated_at": "2026-07-17T04:30:25"
+}

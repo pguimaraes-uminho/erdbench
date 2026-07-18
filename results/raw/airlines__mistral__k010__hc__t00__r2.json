@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__mistral__k010__hc__t00__r2",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k010__hc",
+  "domain": false,
+  "dictionary": true,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.0,
+  "replicate": 2,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "ac33f4364efaf50bb76e71daa7db7e7d740ffa5ed9fd71de2165434cffd1ef22",
+  "prompt_file": "prompts/rendered/airlines__k010__hc.txt",
+  "response_text": "ENTITY Passenger\nPK C_CBC471\nATTR C_CBC471 : varchar : PK\nATTR C_0F6080 : varchar\nATTR C_5D89B3 : varchar\n\nENTITY Flight\nPK C_5C3219\nATTR C_5C3219 : varchar : PK\nATTR C_EB6393 : date\nATTR C_7C1EC3 : varchar\nATTR C_7D36D4 : varchar\nATTR C_BBACE0 : varchar\nATTR C_8EA257 : date\nATTR C_01DE47 : time\n\nENTITY Airline\nPK C_2D8B16\nATTR C_2D8B16 : varchar : PK\nATTR C_A89B15 : varchar\n\nENTITY Airplane\nPK C_50188A\nATTR C_50188A : varchar : PK\nATTR C_8C12D6 : varchar\n\nENTITY CrewMember\nPK C_E61BA3\nATTR C_E61BA3 : varchar : PK\nATTR C_6F8658 : varchar\n\nENTITY Airport\nPK C_B7FEBA\nATTR C_B7FEBA : varchar : PK\nATTR C_C3863A : varchar\nATTR C_713E83 : varchar\nATTR C_10EC5F : varchar\n\nENTITY ArrivalAirport\nPK C_EC6E73\nATTR C_EC6E73 : varchar : PK\nATTR C_302B15 : varchar\nATTR C_308094 : varchar\nATTR C_80CBA4 : varchar\n\nREL Flight -> Airline : 1 -> 1 : FK=C_2D8B16\nREL Flight -> Airplane : 1 -> 1 : FK=C_50188A\nREL Flight -> Airport : 1 -> 1 : FK=C_B7FEBA\nREL Flight -> ArrivalAirport : 1 -> 1 : FK=C_EC6E73\nREL Flight -> CrewMember : 0..N -> 1 : FK=C_E61BA3\nREL Passenger -> Flight : 0..N -> 1 : FK=C_5C3219",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 66735,
+    "output_tokens": 532
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.0, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 42}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 6867,
+  "transport_retries": 0
+}

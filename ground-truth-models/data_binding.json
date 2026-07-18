@@ -1,0 +1,65 @@
+{
+  "_comment": "Authoritative, frozen mapping from each ground-truth element to the columns of the canonical CSV -- i.e. the explicit data<->GT link. Each entity maps to one or more row-projections {gt_attribute: csv_column}; multiple projections cover role-played entities (an Airport appears in both departure_* and arrival_* columns). verify_gt_data_link.py checks that this binding actually holds in the data (grounding, PK/candidate-key functional dependencies, referential integrity) and MUST pass after any change to the datasets or the ground truth.",
+
+  "airlines": {
+    "Customer": [
+      {"passport": "passport", "name": "customer_name", "surname": "customer_surname"}
+    ],
+    "Flight": [
+      {"flight_number": "flight_number", "flight_date": "flight_date", "airline_code": "airline_code", "airport_departure": "airport_departure", "airport_arrival": "airport_arrival", "belt_number": "belt_number", "license_number": "license_number"}
+    ],
+    "Seat": [
+      {"passport": "passport", "flight_number": "flight_number", "flight_date": "flight_date", "seat_number": "seat_number"}
+    ],
+    "Airline": [
+      {"airline_code": "airline_code", "name": "airline_name"}
+    ],
+    "Airplane": [
+      {"license_number": "license_number", "airplane_model": "airplane_model"}
+    ],
+    "Airport": [
+      {"airport_code": "airport_departure", "name": "departure_name", "location_code": "departure_location"},
+      {"airport_code": "airport_arrival", "name": "arrival_name", "location_code": "arrival_location"}
+    ],
+    "Location": [
+      {"location_code": "departure_location", "city": "departure_city"},
+      {"location_code": "arrival_location", "city": "arrival_city"}
+    ],
+    "BaggageBelt": [
+      {"belt_number": "belt_number", "airport_code": "airport_arrival"}
+    ],
+    "Status": [
+      {"status_code": "status_code", "status": "status"}
+    ],
+    "FlightStatus": [
+      {"status_code": "status_code", "flight_number": "flight_number", "flight_date": "flight_date", "date": "status_date", "hour": "status_hour"}
+    ],
+    "CrewMember": [
+      {"crew_license": "crew_license", "role": "crew_role"}
+    ],
+    "FlightCrew": [
+      {"flight_number": "flight_number", "flight_date": "flight_date", "crew_license": "crew_license"}
+    ]
+  },
+
+  "manufacturing": {
+    "Client": [
+      {"client_id": "client_id", "client_name": "client_name"}
+    ],
+    "Order": [
+      {"n_order": "n_order", "date": "date", "client_id": "client_id"}
+    ],
+    "Material": [
+      {"n_material": "n_material", "description": "description_material"}
+    ],
+    "Operation": [
+      {"n_operation": "n_operation", "description": "description_operation"}
+    ],
+    "WorkCenter": [
+      {"workcenter_id": "workcenter_id"}
+    ],
+    "OrderOperation": [
+      {"order_operation_id": "order_operation_id", "n_order": "n_order", "n_material": "n_material", "n_operation": "n_operation", "workcenter_id": "workcenter_id", "timestamp": "timestamp", "quantity": "quantity"}
+    ]
+  }
+}

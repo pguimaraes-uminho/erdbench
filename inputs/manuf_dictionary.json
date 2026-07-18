@@ -1,0 +1,17 @@
+{
+  "_comment": "Data dictionary: expert-provided meaning of each column. Attribute semantics only -- no ERD roles. Keyed by canonical column in CSV order; build_prompts.py rewrites keys to match the header transform.",
+  "dictionary": {
+    "client_id": "a numeric code identifying the client that placed the order",
+    "client_name": "the name of that client",
+    "n_order": "a numeric code identifying a production order",
+    "date": "the date the order was registered in the system",
+    "n_material": "a numeric code identifying a material",
+    "description_material": "the description of that material",
+    "n_operation": "a numeric code identifying a type of production operation",
+    "description_operation": "the description of that operation type",
+    "workcenter_id": "a numeric code identifying a work center where operations are carried out",
+    "order_operation_id": "a numeric code identifying a single execution of an operation within an order",
+    "timestamp": "the date and time at which that operation execution started",
+    "quantity": "the quantity processed in that operation execution"
+  }
+}

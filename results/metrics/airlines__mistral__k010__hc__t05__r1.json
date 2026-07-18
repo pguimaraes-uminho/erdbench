@@ -1,0 +1,63 @@
+{
+  "run_id": "airlines__mistral__k010__hc__t05__r1",
+  "provider": "mistral",
+  "dataset": "airlines",
+  "cond_id": "k010__hc",
+  "domain": false,
+  "dictionary": true,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 1,
+  "parse_failure": false,
+  "metrics": {
+    "entities": {
+      "tp": 9,
+      "fp": 1,
+      "fn": 3,
+      "precision": 0.9,
+      "recall": 0.75,
+      "f1": 0.8182
+    },
+    "relationships": {
+      "tp": 2,
+      "fp": 8,
+      "fn": 11,
+      "precision": 0.2,
+      "recall": 0.1538,
+      "f1": 0.1739
+    },
+    "keys": {
+      "tp": 0,
+      "fp": 20,
+      "fn": 28,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pk_only": {
+        "tp": 0,
+        "fp": 10,
+        "fn": 12,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "fk_only": {
+        "tp": 0,
+        "fp": 10,
+        "fn": 16,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "attributes": {
+      "tp": 3,
+      "fp": 18,
+      "fn": 18,
+      "precision": 0.1429,
+      "recall": 0.1429,
+      "f1": 0.1429
+    }
+  }
+}

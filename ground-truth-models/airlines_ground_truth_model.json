@@ -1,0 +1,668 @@
+{
+  "model": {
+    "name": "Airport",
+    "version": "2.0",
+    "description": "Airport operational data model",
+    "source": "Ground Truth"
+  },
+
+  "entities": [
+
+    {
+      "name": "Customer",
+      "businessDescription": "Represents a customer travelling on flights.",
+      "primaryKey": ["passport"],
+      "attributes": [
+        {
+          "name": "passport",
+          "type": "VARCHAR(50)",
+          "nullable": false,
+          "semanticType": "Identifier"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "semanticType": "PersonName"
+        },
+        {
+          "name": "surname",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "semanticType": "PersonSurname"
+        }
+      ]
+    },
+
+    {
+      "name": "Flight",
+      "businessDescription": "Represents a scheduled flight.",
+      "primaryKey": [
+        "flight_number",
+        "flight_date"
+      ],
+      "attributes": [
+        {
+          "name": "flight_number",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "semanticType": "Identifier"
+        },
+        {
+          "name": "flight_date",
+          "type": "DATE",
+          "nullable": false,
+          "semanticType": "BusinessDate"
+        },
+        {
+          "name": "airline_code",
+          "type": "VARCHAR(10)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Airline",
+            "attribute": "airline_code"
+          }
+        },
+        {
+          "name": "airport_departure",
+          "type": "VARCHAR(10)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Airport",
+            "attribute": "airport_code"
+          }
+        },
+        {
+          "name": "airport_arrival",
+          "type": "VARCHAR(10)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Airport",
+            "attribute": "airport_code"
+          }
+        },
+        {
+          "name": "belt_number",
+          "type": "VARCHAR(20)",
+          "nullable": true,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "BaggageBelt",
+            "attribute": "belt_number"
+          }
+        },
+        {
+          "name": "license_number",
+          "type": "VARCHAR(50)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Airplane",
+            "attribute": "license_number"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Seat",
+      "businessDescription": "Associates a customer with a seat on a flight.",
+      "primaryKey": [
+        "passport",
+        "flight_number",
+        "flight_date"
+      ],
+      "candidateKeys": [["flight_number", "flight_date", "seat_number"]],
+      "attributes": [
+        {
+          "name": "passport",
+          "type": "VARCHAR(50)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Customer",
+            "attribute": "passport"
+          }
+        },
+        {
+          "name": "flight_number",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Flight",
+            "attribute": "flight_number"
+          }
+        },
+        {
+          "name": "flight_date",
+          "type": "DATE",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Flight",
+            "attribute": "flight_date"
+          }
+        },
+        {
+          "name": "seat_number",
+          "type": "VARCHAR(10)",
+          "nullable": false,
+          "semanticType": "SeatIdentifier"
+        }
+      ]
+    },
+
+    {
+      "name": "Airline",
+      "businessDescription": "Represents an airline.",
+      "primaryKey": ["airline_code"],
+      "candidateKeys": [["name"]],
+      "attributes": [
+        {
+          "name": "airline_code",
+          "type": "VARCHAR(10)",
+          "nullable": false,
+          "semanticType": "Identifier"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "semanticType": "BusinessName"
+        }
+      ]
+    },
+
+    {
+      "name": "Airplane",
+      "businessDescription": "Represents an aircraft.",
+      "primaryKey": ["license_number"],
+      "attributes": [
+        {
+          "name": "license_number",
+          "type": "VARCHAR(50)",
+          "nullable": false,
+          "semanticType": "Identifier"
+        },
+        {
+          "name": "airplane_model",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "semanticType": "Model"
+        }
+      ]
+    },
+
+    {
+      "name": "Airport",
+      "businessDescription": "Represents an airport.",
+      "primaryKey": ["airport_code"],
+      "candidateKeys": [["name"]],
+      "attributes": [
+        {
+          "name": "airport_code",
+          "type": "VARCHAR(10)",
+          "nullable": false,
+          "semanticType": "Identifier"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "semanticType": "BusinessName"
+        },
+        {
+          "name": "location_code",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Location",
+            "attribute": "location_code"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Location",
+      "businessDescription": "Represents a geographical location.",
+      "primaryKey": ["location_code"],
+      "candidateKeys": [["city"]],
+      "attributes": [
+        {
+          "name": "location_code",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "semanticType": "Identifier"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "semanticType": "City"
+        }
+      ]
+    },
+
+    {
+      "name": "BaggageBelt",
+      "businessDescription": "Represents a baggage claim belt.",
+      "primaryKey": ["belt_number"],
+      "attributes": [
+        {
+          "name": "belt_number",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "semanticType": "Identifier"
+        },
+        {
+          "name": "airport_code",
+          "type": "VARCHAR(10)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Airport",
+            "attribute": "airport_code"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Status",
+      "businessDescription": "Represents a flight status.",
+      "primaryKey": ["status_code"],
+      "candidateKeys": [["status"]],
+      "attributes": [
+        {
+          "name": "status_code",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "semanticType": "Identifier"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "semanticType": "Status"
+        }
+      ]
+    },
+
+    {
+      "name": "FlightStatus",
+      "businessDescription": "Represents the status history of a flight.",
+      "primaryKey": [
+        "status_code",
+        "flight_number",
+        "flight_date"
+      ],
+      "candidateKeys": [["flight_number", "flight_date", "hour"]],
+      "attributes": [
+        {
+          "name": "status_code",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Status",
+            "attribute": "status_code"
+          }
+        },
+        {
+          "name": "flight_number",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Flight",
+            "attribute": "flight_number"
+          }
+        },
+        {
+          "name": "flight_date",
+          "type": "DATE",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Flight",
+            "attribute": "flight_date"
+          }
+        },
+        {
+          "name": "date",
+          "type": "DATE",
+          "nullable": false,
+          "semanticType": "EventDate"
+        },
+        {
+          "name": "hour",
+          "type": "VARCHAR(10)",
+          "nullable": false,
+          "semanticType": "EventTime"
+        }
+      ]
+    },
+
+    {
+      "name": "CrewMember",
+      "businessDescription": "Represents a crew member.",
+      "primaryKey": ["crew_license"],
+      "attributes": [
+        {
+          "name": "crew_license",
+          "type": "VARCHAR(50)",
+          "nullable": false,
+          "semanticType": "Identifier"
+        },
+        {
+          "name": "role",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "semanticType": "CrewRole"
+        }
+      ]
+    },
+
+    {
+      "name": "FlightCrew",
+      "businessDescription": "Associates crew members with flights.",
+      "primaryKey": [
+        "flight_number",
+        "flight_date",
+        "crew_license"
+      ],
+      "attributes": [
+        {
+          "name": "flight_number",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Flight",
+            "attribute": "flight_number"
+          }
+        },
+        {
+          "name": "flight_date",
+          "type": "DATE",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "Flight",
+            "attribute": "flight_date"
+          }
+        },
+        {
+          "name": "crew_license",
+          "type": "VARCHAR(50)",
+          "nullable": false,
+          "semanticType": "ForeignKey",
+          "references": {
+            "entity": "CrewMember",
+            "attribute": "crew_license"
+          }
+        }
+      ]
+    }
+
+  ],
+
+  "relationships": [
+
+    {
+      "name": "CustomerBooksSeat",
+      "source": "Customer",
+      "target": "Seat",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "foreignKey": {
+        "entity": "Seat",
+        "attributes": ["passport"],
+        "references": {
+          "entity": "Customer",
+          "attributes": ["passport"]
+        }
+      },
+      "mandatory": true
+    },
+
+    {
+      "name": "FlightHasSeats",
+      "source": "Flight",
+      "target": "Seat",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "foreignKey": {
+        "entity": "Seat",
+        "attributes": ["flight_number", "flight_date"],
+        "references": {
+          "entity": "Flight",
+          "attributes": ["flight_number", "flight_date"]
+        }
+      },
+      "mandatory": true
+    },
+
+    {
+      "name": "AirlineOperatesFlight",
+      "source": "Airline",
+      "target": "Flight",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "foreignKey": {
+        "entity": "Flight",
+        "attributes": ["airline_code"],
+        "references": {
+          "entity": "Airline",
+          "attributes": ["airline_code"]
+        }
+      },
+      "mandatory": true
+    },
+
+    {
+      "name": "AirplanePerformsFlight",
+      "source": "Airplane",
+      "target": "Flight",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "foreignKey": {
+        "entity": "Flight",
+        "attributes": ["license_number"],
+        "references": {
+          "entity": "Airplane",
+          "attributes": ["license_number"]
+        }
+      },
+      "mandatory": true
+    },
+
+    {
+      "name": "AirportDepartsFlight",
+      "source": "Airport",
+      "target": "Flight",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "role": "Departure",
+      "foreignKey": {
+        "entity": "Flight",
+        "attributes": ["airport_departure"],
+        "references": {
+          "entity": "Airport",
+          "attributes": ["airport_code"]
+        }
+      },
+      "mandatory": true
+    },
+
+    {
+      "name": "AirportReceivesFlight",
+      "source": "Airport",
+      "target": "Flight",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "role": "Arrival",
+      "foreignKey": {
+        "entity": "Flight",
+        "attributes": ["airport_arrival"],
+        "references": {
+          "entity": "Airport",
+          "attributes": ["airport_code"]
+        }
+      },
+      "mandatory": true
+    },
+
+    {
+      "name": "LocationHostsAirport",
+      "source": "Location",
+      "target": "Airport",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "foreignKey": {
+        "entity": "Airport",
+        "attributes": ["location_code"],
+        "references": {
+          "entity": "Location",
+          "attributes": ["location_code"]
+        }
+      },
+      "mandatory": true
+    },
+
+    {
+      "name": "AirportHasBaggageBelt",
+      "source": "Airport",
+      "target": "BaggageBelt",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "foreignKey": {
+        "entity": "BaggageBelt",
+        "attributes": ["airport_code"],
+        "references": {
+          "entity": "Airport",
+          "attributes": ["airport_code"]
+        }
+      },
+      "mandatory": true
+    },
+
+    {
+      "name": "BaggageBeltServesFlight",
+      "source": "BaggageBelt",
+      "target": "Flight",
+      "cardinality": {
+        "source": "0..1",
+        "target": "N"
+      },
+      "foreignKey": {
+        "entity": "Flight",
+        "attributes": ["belt_number"],
+        "references": {
+          "entity": "BaggageBelt",
+          "attributes": ["belt_number"]
+        }
+      },
+      "mandatory": false
+    },
+
+    {
+      "name": "StatusClassifiesFlightStatus",
+      "source": "Status",
+      "target": "FlightStatus",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "foreignKey": {
+        "entity": "FlightStatus",
+        "attributes": ["status_code"],
+        "references": {
+          "entity": "Status",
+          "attributes": ["status_code"]
+        }
+      },
+      "mandatory": true
+    },
+
+    {
+      "name": "FlightHasStatusHistory",
+      "source": "Flight",
+      "target": "FlightStatus",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "foreignKey": {
+        "entity": "FlightStatus",
+        "attributes": ["flight_number", "flight_date"],
+        "references": {
+          "entity": "Flight",
+          "attributes": ["flight_number", "flight_date"]
+        }
+      },
+      "mandatory": true
+    },
+
+    {
+      "name": "CrewMemberAssignedToFlightCrew",
+      "source": "CrewMember",
+      "target": "FlightCrew",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "foreignKey": {
+        "entity": "FlightCrew",
+        "attributes": ["crew_license"],
+        "references": {
+          "entity": "CrewMember",
+          "attributes": ["crew_license"]
+        }
+      },
+      "mandatory": true
+    },
+
+    {
+      "name": "FlightHasFlightCrew",
+      "source": "Flight",
+      "target": "FlightCrew",
+      "cardinality": {
+        "source": "1",
+        "target": "N"
+      },
+      "foreignKey": {
+        "entity": "FlightCrew",
+        "attributes": ["flight_number", "flight_date"],
+        "references": {
+          "entity": "Flight",
+          "attributes": ["flight_number", "flight_date"]
+        }
+      },
+      "mandatory": true
+    }
+
+  ]
+}

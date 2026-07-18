@@ -1,0 +1,237 @@
+{
+  "run_id": "manufacturing__baseline__k000__hn__t00__r1",
+  "provider": "baseline",
+  "model_requested": "deterministic-profiling-v1",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hn",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.0,
+  "replicate": 1,
+  "candidate": {
+    "entities": [
+      {
+        "name": "C1",
+        "pk": [
+          "c1"
+        ],
+        "attrs": [
+          {
+            "name": "c1",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c2",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "C10",
+        "pk": [
+          "c10"
+        ],
+        "attrs": [
+          {
+            "name": "c10",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c11",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "c12",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "c3",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "c5",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "c7",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "c9",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "C11",
+        "pk": [
+          "c11"
+        ],
+        "attrs": [
+          {
+            "name": "c11",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c4",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "C3",
+        "pk": [
+          "c3"
+        ],
+        "attrs": [
+          {
+            "name": "c3",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c1",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "c4",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "C5",
+        "pk": [
+          "c5"
+        ],
+        "attrs": [
+          {
+            "name": "c5",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c6",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "C7",
+        "pk": [
+          "c7"
+        ],
+        "attrs": [
+          {
+            "name": "c7",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "c8",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Record",
+        "pk": [
+          "c10"
+        ],
+        "attrs": [
+          {
+            "name": "c10",
+            "is_pk": true,
+            "is_fk": true
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "Record",
+        "to": "C10",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "c10",
+        "fk_cols": [
+          "c10"
+        ]
+      },
+      {
+        "frm": "C10",
+        "to": "C11",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "c11",
+        "fk_cols": [
+          "c11"
+        ]
+      },
+      {
+        "frm": "C10",
+        "to": "C3",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "c3",
+        "fk_cols": [
+          "c3"
+        ]
+      },
+      {
+        "frm": "C10",
+        "to": "C5",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "c5",
+        "fk_cols": [
+          "c5"
+        ]
+      },
+      {
+        "frm": "C10",
+        "to": "C7",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "c7",
+        "fk_cols": [
+          "c7"
+        ]
+      },
+      {
+        "frm": "C3",
+        "to": "C1",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "c1",
+        "fk_cols": [
+          "c1"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 39,
+    "lines_parsed": 39,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

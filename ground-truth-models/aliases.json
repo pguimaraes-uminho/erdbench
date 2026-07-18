@@ -1,0 +1,46 @@
+{
+  "_comment": "Expert-curated alias tables, frozen before any execution. Authored ONLY from the GT JSON, the inputs/ knowledge files, and the CSV headers the model actually sees -- never from observed model outputs. Entity aliases map accepted entity-name synonyms to the canonical GT entity. Attribute aliases (keyed 'Entity.attribute') map accepted attribute names, including the mandatory CSV-column bridge, to the GT attribute. Names are matched after canonicalization (case/separator/singular-insensitive), so only genuine synonyms and column-name bridges need listing.",
+
+  "airlines": {
+    "entities": {
+      "Customer": ["passenger", "client", "traveler", "traveller", "pax"],
+      "Seat": ["booking", "reservation", "ticket", "seat_assignment", "seat_booking", "flight_seat"],
+      "Airline": ["carrier"],
+      "Airplane": ["aircraft", "plane"],
+      "Location": ["city", "place", "geo_location"],
+      "BaggageBelt": ["belt", "baggage_claim", "carousel", "baggage", "conveyor"],
+      "Status": ["flight_status_type", "status_type", "status_catalog"],
+      "FlightStatus": ["status_history", "flight_status_history", "status_event", "status_log", "flight_status_record"],
+      "CrewMember": ["crew", "staff", "employee", "crew_person"],
+      "FlightCrew": ["crew_assignment", "flight_crew_assignment", "crew_membership", "flight_crew_member"]
+    },
+    "attributes": {
+      "Customer.name": ["customer_name"],
+      "Customer.surname": ["customer_surname"],
+      "Airline.name": ["airline_name"],
+      "Airport.name": ["airport_name", "departure_name", "arrival_name"],
+      "Airport.airport_code": ["airport_departure", "airport_arrival"],
+      "Airport.location_code": ["departure_location", "arrival_location"],
+      "Location.location_code": ["departure_location", "arrival_location"],
+      "Location.city": ["departure_city", "arrival_city", "city"],
+      "BaggageBelt.airport_code": ["airport_arrival"],
+      "FlightStatus.date": ["status_date"],
+      "FlightStatus.hour": ["status_hour"],
+      "CrewMember.role": ["crew_role"]
+    }
+  },
+
+  "manufacturing": {
+    "entities": {
+      "Client": ["customer"],
+      "Order": ["production_order", "purchase_order"],
+      "Operation": ["operation_type"],
+      "WorkCenter": ["work_centre", "workstation", "center", "centre"],
+      "OrderOperation": ["operation_execution", "order_op", "execution", "production_step", "task", "order_item", "order_line", "operation_instance"]
+    },
+    "attributes": {
+      "Material.description": ["description_material"],
+      "Operation.description": ["description_operation"]
+    }
+  }
+}

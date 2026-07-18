@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__mistral__k110__hc__t05__r1",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k110__hc",
+  "domain": true,
+  "dictionary": true,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 1,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "b197d7d9a180b9cb93af4cff6eadb49045fac0b33d61a96f231e9aa45303f694",
+  "prompt_file": "prompts/rendered/airlines__k110__hc.txt",
+  "response_text": "ENTITY Airport\nPK code\nATTR code : varchar : PK\nATTR name : varchar\nATTR location_code : varchar\nATTR city : varchar\n\nENTITY Airline\nPK code\nATTR code : varchar : PK\nATTR name : varchar\n\nENTITY Airplane\nPK registration_code\nATTR registration_code : varchar : PK\nATTR model : varchar\n\nENTITY Flight\nPK flight_code\nATTR flight_code : varchar : PK\nATTR date : date\nATTR departure_airport : varchar : FK\nATTR arrival_airport : varchar : FK\nATTR airplane_registration : varchar : FK\nATTR airline_code : varchar : FK\n\nENTITY FlightStatus\nPK status_code\nATTR status_code : varchar : PK\nATTR label : varchar\n\nENTITY Passenger\nPK passenger_code\nATTR passenger_code : varchar : PK\nATTR given_name : varchar\nATTR family_name : varchar\n\nENTITY CrewMember\nPK crew_code\nATTR crew_code : varchar : PK\nATTR role : varchar\n\nENTITY FlightPassenger\nPK flight_code, passenger_code\nATTR flight_code : varchar : PK : FK\nATTR passenger_code : varchar : PK : FK\nATTR seat : varchar\n\nENTITY FlightCrew\nPK flight_code, crew_code\nATTR flight_code : varchar : PK : FK\nATTR crew_code : varchar : PK : FK\n\nENTITY FlightStatusLog\nPK flight_code, status_date, status_time\nATTR flight_code : varchar : PK : FK\nATTR status_code : varchar : FK\nATTR status_date : date : PK\nATTR status_time : time : PK\n\nREL Flight -> Airport : 1 -> 1 : FK=departure_airport\nREL Flight -> Airport : 1 -> 1 : FK=arrival_airport\nREL Flight -> Airplane : 1 -> 1 : FK=airplane_registration\nREL Flight -> Airline : 1 -> 1 : FK=airline_code\nREL FlightStatusLog -> Flight : 1 -> 1 : FK=flight_code\nREL FlightStatusLog -> FlightStatus : 1 -> 1 : FK=status_code\nREL FlightPassenger -> Flight : N -> 1 : FK=flight_code\nREL FlightPassenger -> Passenger : N -> 1 : FK=passenger_code\nREL FlightCrew -> Flight : N -> 1 : FK=flight_code\nREL FlightCrew -> CrewMember : N -> 1 : FK=crew_code",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 66764,
+    "output_tokens": 536
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.5, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 42}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 3904,
+  "transport_retries": 0
+}

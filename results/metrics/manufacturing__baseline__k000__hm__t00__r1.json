@@ -1,0 +1,63 @@
+{
+  "run_id": "manufacturing__baseline__k000__hm__t00__r1",
+  "provider": "baseline",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hm",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "meaningful",
+  "temperature": 0.0,
+  "replicate": 1,
+  "parse_failure": false,
+  "metrics": {
+    "entities": {
+      "tp": 5,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.7143,
+      "recall": 0.8333,
+      "f1": 0.7692
+    },
+    "relationships": {
+      "tp": 4,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.6667,
+      "recall": 0.8,
+      "f1": 0.7273
+    },
+    "keys": {
+      "tp": 9,
+      "fp": 4,
+      "fn": 2,
+      "precision": 0.6923,
+      "recall": 0.8182,
+      "f1": 0.75,
+      "pk_only": {
+        "tp": 5,
+        "fp": 2,
+        "fn": 1,
+        "precision": 0.7143,
+        "recall": 0.8333,
+        "f1": 0.7692
+      },
+      "fk_only": {
+        "tp": 4,
+        "fp": 2,
+        "fn": 1,
+        "precision": 0.6667,
+        "recall": 0.8,
+        "f1": 0.7273
+      }
+    },
+    "attributes": {
+      "tp": 10,
+      "fp": 3,
+      "fn": 2,
+      "precision": 0.7692,
+      "recall": 0.8333,
+      "f1": 0.8
+    }
+  }
+}

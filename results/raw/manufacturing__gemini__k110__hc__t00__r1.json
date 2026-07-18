@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__gemini__k110__hc__t00__r1",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "manufacturing",
+  "cond_id": "k110__hc",
+  "domain": true,
+  "dictionary": true,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.0,
+  "replicate": 1,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "dc8c6830ad8e9bf0110f52702dbdf612a386d765dba57970587b2012f6ffb2fb",
+  "prompt_file": "prompts/rendered/manufacturing__k110__hc.txt",
+  "response_text": "ENTITY Client\nPK C_659042\nATTR C_659042 : integer : PK\nATTR C_D67EB9 : varchar\nENTITY ProductionOrder\nPK C_CB6EF1\nATTR C_CB6EF1 : integer : PK\nATTR C_0E8763 : date\nATTR C_659042 : integer : FK\nENTITY Material\nPK C_F102F4\nATTR C_F102F4 : integer : PK\nATTR C_F8CD0E : varchar\nENTITY OperationType\nPK C_AC18FC\nATTR C_AC18FC : integer : PK\nATTR C_6112B3 : varchar\nENTITY WorkCenter\nPK C_47C7FC\nATTR C_47C7FC : integer : PK\nENTITY OperationExecution\nPK C_E488DF\nATTR C_E488DF : integer : PK\nATTR C_323748 : datetime\nATTR C_1A7B30 : decimal\nATTR C_CB6EF1 : integer : FK\nATTR C_F102F4 : integer : FK\nATTR C_AC18FC : integer : FK\nATTR C_47C7FC : integer : FK\nREL ProductionOrder -> Client : 0..N -> 1 : FK=C_659042\nREL OperationExecution -> ProductionOrder : 0..N -> 1 : FK=C_CB6EF1\nREL OperationExecution -> Material : 0..N -> 1 : FK=C_F102F4\nREL OperationExecution -> OperationType : 0..N -> 1 : FK=C_AC18FC\nREL OperationExecution -> WorkCenter : 0..N -> 1 : FK=C_47C7FC",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 11853,
+    "output_tokens": 411
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.0, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 42, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 2929,
+  "transport_retries": 0
+}

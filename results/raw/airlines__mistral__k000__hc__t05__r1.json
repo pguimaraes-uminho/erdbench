@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__mistral__k000__hc__t05__r1",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k000__hc",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 1,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "ec07006d8b6a72f92b7d80bcf2cdbf8f9e3a0e398894fafcc27599d7fe0d46a0",
+  "prompt_file": "prompts/rendered/airlines__k000__hc.txt",
+  "response_text": "ENTITY Airport\nPK code\nATTR code : varchar : PK\nATTR name : varchar\n\nENTITY City\nPK code\nATTR code : varchar : PK\nATTR name : varchar\n\nENTITY Airline\nPK code\nATTR code : varchar : PK\nATTR name : varchar\n\nENTITY Flight\nPK flight_number\nATTR flight_number : varchar : PK\nATTR scheduled_date : date\nATTR status : varchar\nATTR flight_status_time : datetime\nATTR registration : varchar\n\nENTITY FlightLeg\nPK id\nATTR id : integer : PK\nATTR flight_number : varchar : FK\nATTR departure_airport : varchar : FK\nATTR arrival_airport : varchar : FK\nATTR departure_time : datetime\nATTR arrival_time : datetime\nATTR status : varchar\n\nENTITY CrewMember\nPK crew_code\nATTR crew_code : varchar : PK\nATTR first_name : varchar\nATTR last_name : varchar\nATTR role : varchar\n\nREL Flight -> FlightLeg : 1 -> 0..N : FK=flight_number\nREL FlightLeg -> Airport : 1..N -> 1 : FK=departure_airport\nREL FlightLeg -> Airport : 1..N -> 1 : FK=arrival_airport\nREL FlightLeg -> CrewMember : 1..N -> 0..N : FK=crew_code",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 66263,
+    "output_tokens": 297
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.5, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 42}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 4725,
+  "transport_retries": 0
+}

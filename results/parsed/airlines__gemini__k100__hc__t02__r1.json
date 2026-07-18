@@ -1,0 +1,360 @@
+{
+  "run_id": "airlines__gemini__k100__hc__t02__r1",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "dataset": "airlines",
+  "cond_id": "k100__hc",
+  "domain": true,
+  "dictionary": false,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.2,
+  "replicate": 1,
+  "candidate": {
+    "entities": [
+      {
+        "name": "Person",
+        "pk": [
+          "person_id"
+        ],
+        "attrs": [
+          {
+            "name": "person_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "first_name",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "last_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Crew",
+        "pk": [
+          "crew_id"
+        ],
+        "attrs": [
+          {
+            "name": "crew_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "role",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "person_id",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      },
+      {
+        "name": "Airline",
+        "pk": [
+          "airline_id"
+        ],
+        "attrs": [
+          {
+            "name": "airline_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "City",
+        "pk": [
+          "city_id"
+        ],
+        "attrs": [
+          {
+            "name": "city_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Airport",
+        "pk": [
+          "airport_id"
+        ],
+        "attrs": [
+          {
+            "name": "airport_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "name",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "city_id",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      },
+      {
+        "name": "AircraftModel",
+        "pk": [
+          "model_id"
+        ],
+        "attrs": [
+          {
+            "name": "model_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Aircraft",
+        "pk": [
+          "registration"
+        ],
+        "attrs": [
+          {
+            "name": "registration",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "model_id",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      },
+      {
+        "name": "Flight",
+        "pk": [
+          "flight_id",
+          "flight_date"
+        ],
+        "attrs": [
+          {
+            "name": "flight_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "flight_date",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "airline_id",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "departure_airport_id",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "arrival_airport_id",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "aircraft_registration",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "status_code",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "status_description",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "scheduled_time",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "BoardingPass",
+        "pk": [
+          "boarding_pass_id"
+        ],
+        "attrs": [
+          {
+            "name": "boarding_pass_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "seat",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "flight_id",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "flight_date",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "person_id",
+            "is_pk": false,
+            "is_fk": true
+          },
+          {
+            "name": "crew_id",
+            "is_pk": false,
+            "is_fk": true
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "Crew",
+        "to": "Person",
+        "cf": "1",
+        "ct": "1",
+        "fk": "person_id",
+        "fk_cols": [
+          "personid"
+        ]
+      },
+      {
+        "frm": "Airport",
+        "to": "City",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "city_id",
+        "fk_cols": [
+          "cityid"
+        ]
+      },
+      {
+        "frm": "Aircraft",
+        "to": "AircraftModel",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "model_id",
+        "fk_cols": [
+          "modelid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airline",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "airline_id",
+        "fk_cols": [
+          "airlineid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airport",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "departure_airport_id",
+        "fk_cols": [
+          "departureairportid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Airport",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "arrival_airport_id",
+        "fk_cols": [
+          "arrivalairportid"
+        ]
+      },
+      {
+        "frm": "Flight",
+        "to": "Aircraft",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "aircraft_registration",
+        "fk_cols": [
+          "aircraftregistration"
+        ]
+      },
+      {
+        "frm": "BoardingPass",
+        "to": "Flight",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "flight_id,flight_date",
+        "fk_cols": [
+          "flightid",
+          "flightdate"
+        ]
+      },
+      {
+        "frm": "BoardingPass",
+        "to": "Person",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "person_id",
+        "fk_cols": [
+          "personid"
+        ]
+      },
+      {
+        "frm": "BoardingPass",
+        "to": "Crew",
+        "cf": "0..N",
+        "ct": "1",
+        "fk": "crew_id",
+        "fk_cols": [
+          "crewid"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 60,
+    "lines_parsed": 60,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__mistral__k111__hm__t02__r1",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k111__hm",
+  "domain": true,
+  "dictionary": true,
+  "rules": true,
+  "headers": "meaningful",
+  "temperature": 0.2,
+  "replicate": 1,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "c7b7e75343eac37f4bbae129a2bbbd24ce2a38c829a97409b05dc15b62e3b995",
+  "prompt_file": "prompts/rendered/airlines__k111__hm.txt",
+  "response_text": "ENTITY Airport\nPK airport_code\nATTR airport_code : varchar : PK\nATTR airport_name : varchar\nATTR location_code : varchar\nATTR city : varchar\n\nENTITY Airline\nPK airline_code\nATTR airline_code : varchar : PK\nATTR airline_name : varchar\n\nENTITY Airplane\nPK license_number\nATTR license_number : varchar : PK\nATTR model : varchar\n\nENTITY Passenger\nPK passport\nATTR passport : varchar : PK\nATTR customer_name : varchar\nATTR customer_surname : varchar\n\nENTITY Flight\nPK flight_number, flight_date\nATTR flight_number : varchar : PK\nATTR flight_date : date : PK\nATTR airline_code : varchar : FK\nATTR departure_airport : varchar : FK\nATTR arrival_airport : varchar : FK\nATTR belt_number : varchar\n\nENTITY FlightStatus\nPK status_code\nATTR status_code : varchar : PK\nATTR status : varchar\n\nENTITY FlightStatusLog\nPK flight_number, flight_date, status_date, status_hour\nATTR flight_number : varchar : PK : FK\nATTR flight_date : date : PK : FK\nATTR status_code : varchar : PK : FK\nATTR status_date : date : PK\nATTR status_hour : time\n\nENTITY CrewMember\nPK crew_license\nATTR crew_license : varchar : PK\nATTR crew_role : varchar\n\nENTITY FlightCrewAssignment\nPK flight_number, flight_date, crew_license\nATTR flight_number : varchar : PK : FK\nATTR flight_date : date : PK : FK\nATTR crew_license : varchar : PK : FK\nATTR crew_role : varchar\n\nREL Flight -> Airline : 1..N -> 1 : FK=airline_code\nREL Flight -> Airport : 1 -> 1 : FK=departure_airport\nREL Flight -> Airport : 1 -> 1 : FK=arrival_airport\nREL Flight -> FlightStatusLog : 1 -> 0..N : FK=flight_number, flight_date\nREL FlightStatusLog -> FlightStatus : 1 -> 1 : FK=status_code\nREL Flight -> FlightCrewAssignment : 1 -> 1..N : FK=flight_number, flight_date\nREL FlightCrewAssignment -> CrewMember : 1 -> 1 : FK=crew_license",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 66706,
+    "output_tokens": 505
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.2, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 42}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 5521,
+  "transport_retries": 0
+}

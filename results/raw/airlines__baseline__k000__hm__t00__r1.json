@@ -1,0 +1,36 @@
+{
+  "run_id": "airlines__baseline__k000__hm__t00__r1",
+  "provider": "baseline",
+  "model_requested": "deterministic-profiling-v1",
+  "model_returned": "deterministic-profiling-v1",
+  "dataset": "airlines",
+  "cond_id": "k000__hm",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "meaningful",
+  "temperature": 0.0,
+  "replicate": 1,
+  "seed": null,
+  "top_p": null,
+  "max_tokens": null,
+  "prompt_sha256": null,
+  "prompt_file": "datasets/samples/airlines_sample.csv (header=meaningful)",
+  "response_text": "ENTITY Airline\nPK airline_code\nATTR airline_code : varchar : PK\nATTR airline_name : varchar\nENTITY AirportArrival\nPK airport_arrival\nATTR airport_arrival : varchar : PK\nATTR arrival_location : varchar : FK\nATTR arrival_name : varchar\nENTITY AirportDeparture\nPK airport_departure\nATTR airport_departure : varchar : PK\nATTR departure_location : varchar : FK\nATTR departure_name : varchar\nENTITY ArrivalLocation\nPK arrival_location\nATTR arrival_location : varchar : PK\nATTR arrival_city : varchar\nENTITY Belt\nPK belt_number\nATTR belt_number : varchar : PK\nATTR airport_arrival : varchar : FK\nENTITY CrewLicense\nPK crew_license\nATTR crew_license : varchar : PK\nATTR crew_role : varchar\nENTITY DepartureLocation\nPK departure_location\nATTR departure_location : varchar : PK\nATTR departure_city : varchar\nENTITY License\nPK license_number\nATTR license_number : varchar : PK\nATTR airplane_model : varchar\nENTITY Passport\nPK passport\nATTR passport : varchar : PK\nATTR customer_name : varchar\nATTR customer_surname : varchar\nENTITY Status\nPK status_code\nATTR status_code : varchar : PK\nATTR status : varchar\nENTITY Record\nPK status_date, passport\nATTR flight_number : varchar\nATTR flight_date : date\nATTR seat_number : varchar\nATTR status_date : date : PK\nATTR status_hour : time\nATTR airline_code : varchar : FK\nATTR airport_departure : varchar : FK\nATTR belt_number : varchar : FK\nATTR crew_license : varchar : FK\nATTR license_number : varchar : FK\nATTR passport : varchar : PK : FK\nATTR status_code : varchar : FK\nREL Record -> Airline : 0..N -> 1 : FK=airline_code\nREL Record -> AirportDeparture : 0..N -> 1 : FK=airport_departure\nREL Record -> Belt : 0..N -> 1 : FK=belt_number\nREL Record -> CrewLicense : 0..N -> 1 : FK=crew_license\nREL Record -> License : 0..N -> 1 : FK=license_number\nREL Record -> Passport : 0..N -> 1 : FK=passport\nREL Record -> Status : 0..N -> 1 : FK=status_code\nREL AirportArrival -> ArrivalLocation : 0..N -> 1 : FK=arrival_location\nREL AirportDeparture -> DepartureLocation : 0..N -> 1 : FK=departure_location\nREL Belt -> AirportArrival : 0..N -> 1 : FK=airport_arrival",
+  "finish_reason": "deterministic",
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"algorithm\": \"profiling-v1\", \"headers\": \"meaningful\"}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "none (local)"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "no API call (deterministic)",
+  "latency_ms": 0,
+  "transport_retries": 0,
+  "generated_at": "2026-07-17T04:30:25"
+}

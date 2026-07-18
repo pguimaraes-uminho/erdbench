@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__mistral__k000__hc__t05__r1",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hc",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 1,
+  "seed": 42,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "3873d322cb2f10092596291ec949d82f06c22e8ef72c90ca1a66f6309a05b47c",
+  "prompt_file": "prompts/rendered/manufacturing__k000__hc.txt",
+  "response_text": "ENTITY Client\nPK client_id\nATTR client_id : integer : PK\nATTR client_name : varchar\n\nENTITY Material\nPK material_id\nATTR material_id : integer : PK\nATTR material_name : varchar\n\nENTITY Operation\nPK operation_id\nATTR operation_id : integer : PK\nATTR operation_name : varchar\n\nENTITY ProductionOrder\nPK production_order_id\nATTR production_order_id : integer : PK\nATTR client_id : integer : FK\nATTR planned_date : date\nATTR scheduled_start_time : timestamp\nATTR quantity : decimal\n\nENTITY ProductionStep\nPK production_step_id\nATTR production_step_id : integer : PK\nATTR production_order_id : integer : FK\nATTR material_id : integer : FK\nATTR operation_id : integer : FK\nATTR step_sequence : integer\n\nREL ProductionStep -> Client : 1..N -> 1 : FK=client_id\nREL ProductionStep -> Material : 1..N -> 1 : FK=material_id\nREL ProductionStep -> Operation : 1..N -> 1 : FK=operation_id\nREL ProductionStep -> ProductionOrder : 1 -> 1..N : FK=production_order_id",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 11569,
+    "output_tokens": 254
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.5, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 42}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 2069,
+  "transport_retries": 0
+}

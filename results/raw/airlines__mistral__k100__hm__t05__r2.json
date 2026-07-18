@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__mistral__k100__hm__t05__r2",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k100__hm",
+  "domain": true,
+  "dictionary": false,
+  "rules": false,
+  "headers": "meaningful",
+  "temperature": 0.5,
+  "replicate": 2,
+  "seed": 43,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "4d514ef835b83f34eeb13b9c005845cd0983f618ee116267a8f9ee64e03c03bb",
+  "prompt_file": "prompts/rendered/airlines__k100__hm.txt",
+  "response_text": "ENTITY Passenger\nPK passport\nATTR passport : varchar : PK\nATTR customer_name : varchar\nATTR customer_surname : varchar\n\nENTITY Flight\nPK flight_number\nATTR flight_number : varchar : PK\nATTR flight_date : date\nATTR airline_code : varchar\nATTR airplane_model : varchar\nATTR belt_number : varchar\nATTR status_code : varchar\nATTR status : varchar\nATTR status_date : date\nATTR status_hour : time\n\nENTITY Airline\nPK airline_code\nATTR airline_code : varchar : PK\nATTR airline_name : varchar\n\nENTITY Airport\nPK airport_code\nATTR airport_code : varchar : PK\nATTR airport_name : varchar\nATTR airport_location : varchar\nATTR airport_city : varchar\n\nENTITY Crew\nPK license_number\nATTR license_number : varchar : PK\nATTR crew_role : varchar\n\nREL Flight -> Airline : 1 -> 1 : FK=airline_code\nREL Flight -> Airport : 1 -> 1 : FK=airport_departure\nREL Flight -> Airport : 1 -> 1 : FK=airport_arrival\nREL Flight -> Crew : 1..N -> 1 : FK=crew_license",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 66203,
+    "output_tokens": 262
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.5, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 43}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 2170,
+  "transport_retries": 0
+}

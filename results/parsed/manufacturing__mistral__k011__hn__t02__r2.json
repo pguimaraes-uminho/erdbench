@@ -1,0 +1,184 @@
+{
+  "run_id": "manufacturing__mistral__k011__hn__t02__r2",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "dataset": "manufacturing",
+  "cond_id": "k011__hn",
+  "domain": false,
+  "dictionary": true,
+  "rules": true,
+  "headers": "none",
+  "temperature": 0.2,
+  "replicate": 2,
+  "candidate": {
+    "entities": [
+      {
+        "name": "Client",
+        "pk": [
+          "client_id"
+        ],
+        "attrs": [
+          {
+            "name": "client_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "client_name",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "ProductionOrder",
+        "pk": [
+          "order_id"
+        ],
+        "attrs": [
+          {
+            "name": "order_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "registration_date",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "Material",
+        "pk": [
+          "material_id"
+        ],
+        "attrs": [
+          {
+            "name": "material_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "material_description",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "OperationType",
+        "pk": [
+          "operation_type_id"
+        ],
+        "attrs": [
+          {
+            "name": "operation_type_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "operation_type_description",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "WorkCenter",
+        "pk": [
+          "work_center_id"
+        ],
+        "attrs": [
+          {
+            "name": "work_center_id",
+            "is_pk": true,
+            "is_fk": false
+          }
+        ]
+      },
+      {
+        "name": "OperationExecution",
+        "pk": [
+          "execution_id"
+        ],
+        "attrs": [
+          {
+            "name": "execution_id",
+            "is_pk": true,
+            "is_fk": false
+          },
+          {
+            "name": "start_datetime",
+            "is_pk": false,
+            "is_fk": false
+          },
+          {
+            "name": "quantity",
+            "is_pk": false,
+            "is_fk": false
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "frm": "ProductionOrder",
+        "to": "Client",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "client_id",
+        "fk_cols": [
+          "clientid"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "ProductionOrder",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "order_id",
+        "fk_cols": [
+          "orderid"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "Material",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "material_id",
+        "fk_cols": [
+          "materialid"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "OperationType",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "operation_type_id",
+        "fk_cols": [
+          "operationtypeid"
+        ]
+      },
+      {
+        "frm": "OperationExecution",
+        "to": "WorkCenter",
+        "cf": "1..N",
+        "ct": "1",
+        "fk": "work_center_id",
+        "fk_cols": [
+          "workcenterid"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "lines_total": 29,
+    "lines_parsed": 29,
+    "lines_rejected": 0,
+    "rejected_lines": [],
+    "parse_failure": false
+  }
+}

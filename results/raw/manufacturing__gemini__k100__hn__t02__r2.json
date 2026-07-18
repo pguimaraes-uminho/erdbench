@@ -1,0 +1,35 @@
+{
+  "run_id": "manufacturing__gemini__k100__hn__t02__r2",
+  "provider": "google",
+  "model_requested": "gemini-2.5-flash",
+  "model_returned": "gemini-2.5-flash",
+  "dataset": "manufacturing",
+  "cond_id": "k100__hn",
+  "domain": true,
+  "dictionary": false,
+  "rules": false,
+  "headers": "none",
+  "temperature": 0.2,
+  "replicate": 2,
+  "seed": 43,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "b31e214b0489daad0550103a5764326986320d6279563e11a222b9c1368d96a7",
+  "prompt_file": "prompts/rendered/manufacturing__k100__hn.txt",
+  "response_text": "ENTITY Client\nPK c1\nATTR c1 : integer : PK\nATTR c2 : varchar\nENTITY Order\nPK c3\nATTR c3 : integer : PK\nATTR c4 : date\nATTR c1 : integer : FK\nREL Order -> Client : 0..N -> 1 : FK=c1\nENTITY Material\nPK c5\nATTR c5 : integer : PK\nATTR c6 : varchar\nENTITY Operation\nPK c7\nATTR c7 : integer : PK\nATTR c8 : varchar\nENTITY WorkCenter\nPK c9\nATTR c9 : integer : PK\nENTITY Production\nPK c10\nATTR c10 : integer : PK\nATTR c11 : datetime\nATTR c12 : decimal\nATTR c3 : integer : FK\nATTR c5 : integer : FK\nATTR c7 : integer : FK\nATTR c9 : integer : FK\nREL Production -> Order : 0..N -> 1 : FK=c3\nREL Production -> Material : 0..N -> 1 : FK=c5\nREL Production -> Operation : 0..N -> 1 : FK=c7\nREL Production -> WorkCenter : 0..N -> 1 : FK=c9",
+  "finish_reason": "FinishReason.STOP",
+  "usage": {
+    "input_tokens": 11549,
+    "output_tokens": 261
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"gemini-2.5-flash\", \"temperature\": 0.2, \"top_p\": 1.0, \"max_output_tokens\": 4096, \"seed\": 43, \"thinking_budget\": 0}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "google-genai 1.62.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 2213,
+  "transport_retries": 0
+}

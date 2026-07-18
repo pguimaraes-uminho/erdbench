@@ -1,0 +1,36 @@
+{
+  "run_id": "manufacturing__baseline__k000__hm__t00__r1",
+  "provider": "baseline",
+  "model_requested": "deterministic-profiling-v1",
+  "model_returned": "deterministic-profiling-v1",
+  "dataset": "manufacturing",
+  "cond_id": "k000__hm",
+  "domain": false,
+  "dictionary": false,
+  "rules": false,
+  "headers": "meaningful",
+  "temperature": 0.0,
+  "replicate": 1,
+  "seed": null,
+  "top_p": null,
+  "max_tokens": null,
+  "prompt_sha256": null,
+  "prompt_file": "datasets/samples/manufacturing_sample.csv (header=meaningful)",
+  "response_text": "ENTITY Client\nPK client_id\nATTR client_id : integer : PK\nATTR client_name : varchar\nENTITY Material\nPK n_material\nATTR n_material : integer : PK\nATTR description_material : varchar\nENTITY Operation\nPK n_operation\nATTR n_operation : integer : PK\nATTR description_operation : varchar\nENTITY Order\nPK n_order\nATTR n_order : integer : PK\nATTR client_id : integer : FK\nATTR date : date\nENTITY OrderOperation\nPK order_operation_id\nATTR order_operation_id : integer : PK\nATTR n_material : integer : FK\nATTR n_operation : integer : FK\nATTR n_order : integer : FK\nATTR quantity : decimal\nATTR timestamp : datetime : FK\nATTR workcenter_id : integer\nENTITY Timestamp\nPK timestamp\nATTR timestamp : datetime : PK\nATTR date : date\nENTITY Record\nPK order_operation_id\nATTR order_operation_id : integer : PK : FK\nREL Record -> OrderOperation : 0..N -> 1 : FK=order_operation_id\nREL Order -> Client : 0..N -> 1 : FK=client_id\nREL OrderOperation -> Material : 0..N -> 1 : FK=n_material\nREL OrderOperation -> Operation : 0..N -> 1 : FK=n_operation\nREL OrderOperation -> Order : 0..N -> 1 : FK=n_order\nREL OrderOperation -> Timestamp : 0..N -> 1 : FK=timestamp",
+  "finish_reason": "deterministic",
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"algorithm\": \"profiling-v1\", \"headers\": \"meaningful\"}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "none (local)"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "no API call (deterministic)",
+  "latency_ms": 0,
+  "transport_retries": 0,
+  "generated_at": "2026-07-17T04:30:25"
+}

@@ -1,0 +1,40 @@
+{
+  "total": {
+    "runs": 870,
+    "input_tokens": 33796368,
+    "output_tokens": 381376,
+    "total_tokens": 34177744
+  },
+  "by_model_dataset": {
+    "gemini/manufacturing": {
+      "runs": 216,
+      "input_tokens": 2533788,
+      "output_tokens": 67740
+    },
+    "mistral/manufacturing": {
+      "runs": 216,
+      "input_tokens": 2532096,
+      "output_tokens": 60611
+    },
+    "gemini/airlines": {
+      "runs": 216,
+      "input_tokens": 14369832,
+      "output_tokens": 148950
+    },
+    "mistral/airlines": {
+      "runs": 216,
+      "input_tokens": 14360652,
+      "output_tokens": 104075
+    },
+    "baseline/manufacturing": {
+      "runs": 3,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "baseline/airlines": {
+      "runs": 3,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  }
+}

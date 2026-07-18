@@ -1,0 +1,35 @@
+{
+  "run_id": "airlines__mistral__k101__hc__t05__r2",
+  "provider": "mistral",
+  "model_requested": "mistral-small-latest",
+  "model_returned": "mistral-small-latest",
+  "dataset": "airlines",
+  "cond_id": "k101__hc",
+  "domain": true,
+  "dictionary": false,
+  "rules": true,
+  "headers": "cryptic",
+  "temperature": 0.5,
+  "replicate": 2,
+  "seed": 43,
+  "top_p": 1.0,
+  "max_tokens": 4096,
+  "prompt_sha256": "ce4e8baabe8e128ccb1a4c4cc1cda24707aeedb93479066f80815c52f0a079da",
+  "prompt_file": "prompts/rendered/airlines__k101__hc.txt",
+  "response_text": "ENTITY Passenger\nPK passenger_id\nATTR passenger_id : varchar : PK\nATTR first_name : varchar\nATTR last_name : varchar\n\nENTITY Flight\nPK flight_number\nATTR flight_number : varchar : PK\nATTR airline_code : varchar\nATTR departure_date : date\nATTR departure_time : time\nATTR arrival_date : date\nATTR arrival_time : time\nATTR status : varchar\nATTR baggage_belt : varchar\n\nENTITY Airport\nPK airport_code\nATTR airport_code : varchar : PK\nATTR airport_name : varchar\nATTR location_id : varchar\n\nENTITY City\nPK city_code\nATTR city_code : varchar : PK\nATTR city_name : varchar\n\nENTITY Airplane\nPK registration_number\nATTR registration_number : varchar : PK\nATTR model : varchar\n\nENTITY Airline\nPK airline_code\nATTR airline_code : varchar : PK\nATTR airline_name : varchar\n\nENTITY Location\nPK location_id\nATTR location_id : varchar : PK\n\nENTITY CrewMember\nPK crew_id\nATTR crew_id : varchar : PK\nATTR first_name : varchar\nATTR last_name : varchar\nATTR role : varchar\n\nENTITY FlightStatus\nPK status_code\nATTR status_code : varchar : PK\nATTR status_description : varchar\n\nREL Flight -> Airport : 1 -> 1 : FK=origin_airport_code\nREL Flight -> Airport : 1 -> 1 : FK=destination_airport_code\nREL Flight -> Airplane : 1 -> 1 : FK=airplane_registration\nREL Flight -> Airline : 1 -> 1 : FK=airline_code\nREL Flight -> FlightStatus : 1 -> 1 : FK=status\nREL Airport -> City : 1 -> 1 : FK=location_id\nREL Airport -> Location : 1 -> 1 : FK=location_id",
+  "finish_reason": "stop",
+  "usage": {
+    "input_tokens": 66451,
+    "output_tokens": 402
+  },
+  "thoughts_token_count": null,
+  "request_payload": "{\"model\": \"mistral-small-latest\", \"temperature\": 0.5, \"top_p\": 1.0, \"max_tokens\": 4096, \"random_seed\": 43}",
+  "sdk_versions": {
+    "python": "3.13.12",
+    "provider_sdk": "mistralai 2.6.0"
+  },
+  "ecologits": null,
+  "ecologits_unavailable_reason": "not yet instrumented (pilot TODO)",
+  "latency_ms": 5192,
+  "transport_retries": 0
+}
