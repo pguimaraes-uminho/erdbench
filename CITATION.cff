@@ -17,6 +17,10 @@ repository-code: "https://github.com/pguimaraes-uminho/erdbench"
 license: MIT
 version: "1.0.0"
 date-released: "2026-07-19"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21434806"
+    description: "Zenodo archive (all versions)"
 preferred-citation:
   type: article
   title: "Evaluating Large Language Models in Conceptual Modeling: an Experimental Design"

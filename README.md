@@ -1,5 +1,7 @@
 # ERDBench
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21434806.svg)](https://doi.org/10.5281/zenodo.21434806)
+
 Replication package for the manuscript *"Evaluating Large Language Models in Conceptual Modeling: an Experimental Design"* (under revision at Data & Knowledge Engineering).
 
 ERDBench evaluates two large language models (Mistral Small, Gemini 2.5 Flash) and a deterministic, no-LLM profiling baseline at generating Entity-Relationship models from denormalized CSV data, under a full factorial design: three expert-knowledge factors (domain description, data dictionary, business rules; 2^3 = 8 combinations) crossed with three levels of attribute-name informativeness (meaningful, cryptic, none), on two datasets (airline, manufacturing). This yields 24 conditions per dataset; with 3 temperatures (0, 0.2, 0.5) and 3 replicates, 432 executions per model, 864 LLM executions in total, plus 6 baseline evaluations: 870 evaluated models. The evaluation is fully automated and deterministic: no human judgment and no LLM participates in the scoring.
@@ -79,4 +81,4 @@ python scripts/run_experiment.py --provider all
 
 ## License and citation
 
-Released under the MIT License (see `LICENSE`). If you use ERDBench, please cite the associated paper: `CITATION.cff` carries the reference (GitHub renders it as "Cite this repository"); the full article reference will be added upon publication.
+Released under the MIT License (see `LICENSE`). This repository is archived at Zenodo: [10.5281/zenodo.21434806](https://doi.org/10.5281/zenodo.21434806). If you use ERDBench, please cite the associated paper: `CITATION.cff` carries the reference (GitHub renders it as "Cite this repository"); the full article reference will be added upon publication.
